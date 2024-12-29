@@ -1,0 +1,86 @@
+{
+  "products": [
+    {
+      "id": "product-1",
+      "img": "./src/assets/remera1.jpg",
+      "name": "Remera Over Size",
+      "description": "Remera de algodon",
+      "category": "remeras",
+      "price": 5000,
+      "size": ["30"],
+      "stock": 10
+    },
+    {
+      "id": "product-2",
+      "img": "./src/assets/remera2.jpg",
+      "name": "Remera Over Size",
+      "description": "Remera de algodon",
+      "category": "remeras",
+      "price": 4000,
+      "size": ["30", "32", "33"],
+      "stock": 10
+    },
+    {
+      "id": "product-3",
+      "img": "./src/assets/remera3.jpg",
+      "name": "Remera Over Size",
+      "description": "Remera de algodon",
+      "category": "remeras",
+      "price": 3000,
+      "size": ["30", "32", "33"],
+      "stock": 10
+    },
+
+    {
+      "id": "product-4",
+      "img": "./src/assets/Zapas1.jpg",
+      "name": "Zapatilla Casual",
+      "description": "Confort y estilo",
+      "category": "zapatillas",
+      "price": 5000,
+      "size": ["30", "34", "35"],
+      "stock": 10
+    },
+    {
+      "id": "product-5",
+      "img": "./src/assets/Zapas2.jpg",
+      "name": "Zapatilla Deportiva",
+      "description": "Para todo terreno",
+      "category": "zapatillas",
+      "price": 4000,
+      "size": ["33", "34", "35"],
+      "stock": 10
+    },
+    {
+      "id": "product-6",
+
+      "img": "./src/assets/Zapas3.jpg",
+      "name": "Zapatilla Running",
+      "description": "Ligera y flexible",
+      "category": "zapatillas",
+      "price": 3000,
+      "size": ["31", "33"],
+      "stock": 10
+    },
+    {
+      "id": "product-7",
+      "img": "./src/assets/Zapas4.jpg",
+      "name": "Zapatilla Running",
+      "description": "zapatos de cuero",
+      "category": "zapatillas",
+      "price": 3000,
+      "size": ["31", "32", "33", "35", "37", "39", "41", "44", "45"],
+      "stock": 10
+    },
+    {
+      "id": "product-8",
+      "img": "./src/assets/zapatos1.jpg",
+      "name": "Zapatilla Running",
+      "description": "pumas",
+      "category": "zapatillas",
+      "price": 3000,
+      "size": ["31", "32", "33", "35", "37", "39", "41", "44", "45"],
+      "stock": 10
+    }
+  ]
+}

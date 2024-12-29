@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #d35400;
+  --secondary-color: #ffffff;
+  --text-color: #555;
+  --acent-color: #f76401;
+  --shadow-color: rgba(211, 84, 0, 0.3);
+
+  /* Font Size*/
+
+  --font-size-small: 1rem;
+  --font-size-medium: 1.2rem;
+  --font-size-large: 1.5rem;
+
+  /* Gap */
+
+  --gap-medium: 2rem;
+  --gap-short: 0.8rem;
+
+  /* Canvas */
+
+  --nav-height: 60px;
+  --nav-padding: 4.5rem;
+  --offcanvas-width: 300px;
+  --offcanvas-width-hidden: -300px;
+  --transition-ease: 0.2s ease-in-out;
+
+  /* Border radius */
+
+  --border-radius-medium: 0.5rem;
+}
+
+strong {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+strong::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Ajusta la distancia del subrayado al texto */
+  left: 50%;
+  width: 0;
+  height: 2px; /* Grosor del subrayado */
+  background-color: var(--acent-color); /* Color del subrayado */
+  transition: all 0.3s ease-in-out; /* Animación suave */
+  transform: translateX(-50%);
+}
+
+strong:hover::after {
+  width: 100%; /* Expande el subrayado */
+  left: 0;
+  transform: translateX(0);
+}

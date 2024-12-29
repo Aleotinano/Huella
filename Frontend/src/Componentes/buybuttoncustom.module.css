@@ -1,0 +1,52 @@
+.buyButton {
+  margin-top: var(--gap-medium);
+  font-size: var(--font-size-small);
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+  position: relative;
+  width: 200px;
+  height: 50px;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+}
+
+.buyButton strong {
+  margin-right: 6px;
+}
+
+.buyButton strong::after {
+  background-color: white;
+  height: 1px;
+}
+
+/* Efecto hover en el botón */
+.buyButton:hover {
+  background-color: var(--acent-color);
+  transform: scale(1.05);
+}
+
+.buyButton:hover .animatedicon {
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

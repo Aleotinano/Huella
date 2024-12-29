@@ -1,0 +1,80 @@
+/* Estilos para HeaderContainer */
+.HeaderContainer {
+  background: url("../assets/baackground.png") center/cover no-repeat;
+  position: relative;
+  min-height: calc(110vh - 60px); /* Asegura que ocupe toda la pantalla */
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  scroll-margin-top: 120px;
+}
+
+.HeaderContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Efecto de overlay */
+  z-index: 0;
+}
+
+.HeaderContainer h1,
+.HeaderContainer h2,
+.HeaderButton {
+  position: relative;
+  z-index: 2; /* Asegura que estén encima del overlay */
+}
+
+/* Estilo para el título principal */
+.HeaderContainer h1 {
+  font-size: 8rem;
+  letter-spacing: 0.2rem;
+  color: white;
+  margin: 0;
+}
+
+/* Estilo para el subtítulo */
+.HeaderContainer h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+/* Animación de entrada para los textos y el botón */
+.HeaderContainer h1,
+.HeaderContainer h2,
+.HeaderButton {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .HeaderContainer h1 {
+    font-size: 3rem;
+  }
+
+  .HeaderContainer h2 {
+    font-size: 1.2rem;
+  }
+
+  .HeaderButton {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}
