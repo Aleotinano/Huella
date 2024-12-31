@@ -8,14 +8,21 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(min_length=5)
     email = serializers.EmailField(required=True)
     password = serializers.CharField(write_only=True)
+
     class Meta:
         model = User
         fields = ["id", "username", "email", "password"]
-        #extra_kwargs = {
-        #    "password":{"write_only":True},
-        #    "email":{"required":True}
-        #}
 
+    def validate_username(self, value):
+        if User.objects.filter(username=value).exists():
+            raise serializers.ValidationError("This username is already in use")
+        return value
+
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("This email is already in use")
+        return value
+       
     def validate_password(self, value):
         try:
             validate_password(value)
