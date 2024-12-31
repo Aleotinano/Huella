@@ -1,9 +1,0 @@
- "dependencies": {
-    "bcrypt": "^5.1.1",  *Encriptamiento de contraseñas
-    "cookie-parser": "^1.4.7", *Cookies del usuario
-    "cors": "^2.8.5", *Coneccion del Backend con el Frontend, ahora esta en "http://localhost:5173", pero puede cambiar a "http://localhost:5174" y etc
-    "db-local": "^3.1.0", *Simulador de base de datos en local
-    "express": "^4.21.2", *Framework de node js para el control de rutas y middwalre
-    "jsonwebtoken": "^9.0.2", *Biblioteca para generar y verificar JSON Web Tokens (JWT) en Node.js
-    "vite": "6.0.4" Herramienta de desarrolo
-  }
