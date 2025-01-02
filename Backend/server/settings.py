@@ -83,8 +83,8 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),             # Nombre de tu base de datos
         'USER': os.environ.get('DB_USER'),             # Usuario de la base de datos
         'PASSWORD': os.environ.get('DB_PASSWORD'),     # Contraseña del usuario
-        'HOST': 'localhost',                           # Host, usa '127.0.0.1' si está en tu máquina local
-        'PORT': '3306',                                # Puerto de MySQL (default: 3306)
+        'HOST': os.environ.get('DB_HOST'),                           # Host, usa '127.0.0.1' si está en tu máquina local
+        'PORT': os.environ.get('DB_PORT'),                                # Puerto de MySQL (default: 3306)
         'OPTIONS': {
             'sql_mode': 'STRICT_TRANS_TABLES',         # Opcional para evitar problemas con MySQL
         },

@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
 
-const UserPanel = () => {
+export const UserPanel = () => {
   /* const [user, setUser] = useState({
     name: "",
     email: "",
@@ -73,5 +73,3 @@ const UserPanel = () => {
     </div>
   );
 };
-
-export default UserPanel;
