@@ -29,7 +29,7 @@ export const Filters = () => {
     }));
   };
 
-  const sizevalibles = ["Todos", "30", "31", "32", "33"];
+  const sizevalibles = ["all", "30", "31", "32", "33"];
 
   return (
     <section className={filerscustom.NavFilters}>

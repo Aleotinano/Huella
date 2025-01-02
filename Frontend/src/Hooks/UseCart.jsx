@@ -5,7 +5,7 @@ export const useCart = () => {
   const cart = useContext(CartContext);
 
   if (cart === undefined) {
-    throw new Error("Error al consumir el contexto de cart");
+    throw new Error("Error al consumir el contexto del carro");
   }
   return cart;
 };

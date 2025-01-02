@@ -9,11 +9,13 @@ import navcustom from "./navcustom.module.css";
 import { GiRunningShoe } from "react-icons/gi";
 import { TbCategory } from "react-icons/tb";
 import { BuyButton } from "../../Componentes/BuyButton";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Navegador = () => {
   const [isNavbarVisible, setNavbarVisible] = useState(false);
   const [isCartVisible, setCartVisible] = useState(false);
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
+  const { authenticated } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -86,19 +88,31 @@ export const Navegador = () => {
           <strong className={navcustom.animatedlink}>Contactos</strong>
         </Link>
       </div>
+      {authenticated ? (
+        <div className={navcustom.Links}>
+          <FaShoppingCart
+            onClick={toggleCart}
+            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
+          />
 
-      <div className={navcustom.Links}>
-        <FaShoppingCart
-          onClick={toggleCart}
-          className={`${navcustom.StrongLinks} ${navcustom.icon}`}
-        />
-        <Link to="/Login" className={navcustom.StrongLinks}>
-          <FaUser className={navcustom.icon} />
-        </Link>
-        <Link to="/Register" className={navcustom.StrongLinks}>
-          <strong>Register</strong>
-        </Link>
-      </div>
+          <Link to="/UserPanel" className={navcustom.StrongLinks}>
+            <FaUser className={navcustom.icon} />
+          </Link>
+        </div>
+      ) : (
+        <div className={navcustom.Links}>
+          <FaShoppingCart
+            onClick={toggleCart}
+            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
+          />
+          <Link to="/Login" className={navcustom.StrongLinks}>
+            <FaUser className={navcustom.icon} />
+          </Link>
+          <Link to="/Register" className={navcustom.StrongLinks}>
+            <strong>Register</strong>
+          </Link>
+        </div>
+      )}
 
       <div
         className={`${navcustom.offcanvas} ${

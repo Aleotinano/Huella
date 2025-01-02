@@ -1,16 +1,16 @@
-import { useId, useState } from "react";
-import logincustom from "./logincustom.module.css";
+import { useContext, useId, useState } from "react";
+import logincustom from "../logincustom.module.css";
 
-export const UserForm = ({
-  action, // Función para manejar el envío (login o register)
-  title, // Título del formulario (e.g., "Login", "Register")
-  buttonText, // Texto del botón
-}) => {
+import { AuthContext } from "../../context/AuthContext";
+import { UserRegister } from "../../Hooks/UserRegister"; // Importamos la función de API
+
+export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); // Para manejar errores
-  const [success, setSuccess] = useState(null); // Para mensajes de éxito
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
+  const { authenticated, login } = useContext(AuthContext); // Contexto de autenticación
   const loginUsernameId = useId();
   const loginPasswordId = useId();
 
@@ -28,18 +28,22 @@ export const UserForm = ({
     setSuccess(null); // Resetea el estado de éxito
 
     try {
-      const data = await action({ username, password }); // Llama a la función de acción (login/register)
-      setSuccess(`${title} exitoso`);
+      // Llamamos a la API de login
+      const data = await UserRegister({ username, password });
+
+      // Si el login es exitoso, actualizamos el estado de autenticación
+      login();
+      setSuccess("Inicio de sesión exitoso");
       console.log("Datos recibidos:", data);
     } catch (error) {
-      setError(error.message || `Error al realizar ${title.toLowerCase()}`);
+      setError(error.message || "Error al iniciar sesión");
     }
   };
 
   return (
     <div className={logincustom.LoginContainer}>
       <form onSubmit={handleSubmit}>
-        <h2>{title}</h2>
+        <h2>Registrate Ahora!</h2>
 
         <label htmlFor={loginUsernameId}>Nombre de usuario</label>
         <input
@@ -59,11 +63,13 @@ export const UserForm = ({
           placeholder="Ingresa tu contraseña"
         />
 
-        <button type="submit">{buttonText}</button>
+        <button type="submit">Iniciar sesión</button>
+
+        {error && <p className={logincustom.Error}>{error}</p>}
+        {success && <p className={logincustom.Success}>{success}</p>}
       </form>
 
-      {error && <p className={logincustom.Error}>{error}</p>}
-      {success && <p className={logincustom.Success}>{success}</p>}
+      {authenticated && <p>Bienvenido, ya has iniciado sesión.</p>}
     </div>
   );
 };
