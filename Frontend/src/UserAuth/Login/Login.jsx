@@ -3,6 +3,8 @@ import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { UserLogin } from "../../Hooks/UserLogin"; // Importamos la función de API
 import { BuyButton } from "../../Componentes/BuyButton";
+import AuthImg from "../../assets/AuthImg.jpg";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +12,7 @@ export const Login = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const { authenticated, login } = useContext(AuthContext); // Contexto de autenticación
+  const { authenticated, login, user } = useContext(AuthContext); // Contexto de autenticación
   const loginUsernameId = useId();
   const loginPasswordId = useId();
 
@@ -42,39 +44,64 @@ export const Login = () => {
 
   return (
     <div className={logincustom.LoginContainer}>
-      {authenticated ? (
-        <div className={logincustom.WelcomeText}>
-          <h1>Bienvenido a Vestea {username}!</h1>
-          <BuyButton Href="/" />
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <h2>Iniciar sesión</h2>
+      <div className={logincustom.totalcontainer}>
+        <img src={AuthImg} alt="Imagen de autenticación" />
 
-          <label htmlFor={loginUsernameId}>Nombre de usuario</label>
-          <input
-            type="text"
-            id={loginUsernameId}
-            value={username}
-            onChange={handleUsernameChange}
-            placeholder="Ingresa tu nombre de usuario"
-          />
+        {/* Contenido dinámico basado en la autenticación */}
+        {authenticated ? (
+          <div className={logincustom.WelcomeText}>
+            <h1>¡Bienvenido!</h1>
+            <h3>{username}</h3>
+            <p>Estamos encantados de verte aquí.</p>
+            <p>¿Listo para explorar nuestros productos?</p>
 
-          <label htmlFor={loginPasswordId}>Contraseña</label>
-          <input
-            type="password"
-            id={loginPasswordId}
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Ingresa tu contraseña"
-          />
+            <div className={logincustom.Actions}>
+              <BuyButton Href="/" />
+              <Link to="/UserPanel" className={logincustom.ProfileLink}>
+                Ir a mi perfil
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <h2>Iniciar sesión</h2>
+            <fieldset>
+              <label htmlFor={loginUsernameId}>Nombre de usuario</label>
+              <input
+                type="text"
+                id={loginUsernameId}
+                value={username}
+                onChange={handleUsernameChange}
+                placeholder="Ingresa tu nombre de usuario"
+              />
+            </fieldset>
+            <fieldset>
+              <label htmlFor={loginPasswordId}>Contraseña</label>
+              <input
+                type="password"
+                id={loginPasswordId}
+                value={password}
+                onChange={handlePasswordChange}
+                placeholder="Ingresa tu contraseña"
+              />
+            </fieldset>
 
-          <button type="submit">Iniciar sesión</button>
-
-          {error && <p className={logincustom.Error}>{error}</p>}
-          {success && <p className={logincustom.Success}>{success}</p>}
-        </form>
-      )}
+            {error && <strong className={logincustom.Error}>{error}</strong>}
+            {success && (
+              <strong className={logincustom.Success}>{success}</strong>
+            )}
+            <div className={logincustom.ButtonContainer}>
+              <button type="submit">Iniciar sesión</button>
+              <p>
+                {"Si no tienes cuenta "}
+                <Link to="/Register">registrate</Link>
+                {" haciendo click "}
+                <Link to="/Register">aqui</Link>
+              </p>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 };

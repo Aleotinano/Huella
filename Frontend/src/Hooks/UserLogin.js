@@ -13,6 +13,10 @@ export async function UserLogin({ username, password }) {
       throw new Error("El nombre de usuario es requerido");
     }
 
+    if (!password) {
+      throw new Error("La contraseña es requerida");
+    }
+
     if (!response.ok) {
       throw new Error("Credenciales inválidas");
     }

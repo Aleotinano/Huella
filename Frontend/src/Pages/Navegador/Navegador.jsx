@@ -2,7 +2,11 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
-import { MdMenu, MdOutlinePermContactCalendar } from "react-icons/md";
+import {
+  MdMenu,
+  MdOutlinePermContactCalendar,
+  MdOutlineLogin,
+} from "react-icons/md";
 import { CartContext } from "../../Componentes/Cart";
 import { ProductsItem as ProductsInCart } from "../../Componentes/ProductosItem";
 import navcustom from "./navcustom.module.css";
@@ -15,7 +19,7 @@ export const Navegador = () => {
   const [isNavbarVisible, setNavbarVisible] = useState(false);
   const [isCartVisible, setCartVisible] = useState(false);
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, logout } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -98,6 +102,11 @@ export const Navegador = () => {
           <Link to="/UserPanel" className={navcustom.StrongLinks}>
             <FaUser className={navcustom.icon} />
           </Link>
+
+          <MdOutlineLogin
+            onClick={logout}
+            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
+          />
         </div>
       ) : (
         <div className={navcustom.Links}>
