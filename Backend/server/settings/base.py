@@ -161,6 +161,8 @@ CORS_ALLOW_METHODS = [
 
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # URL del frontend
+    "http://localhost:5174", # URL del frontend
     "http://localhost:5175"  # URL del frontend
 ]
 
