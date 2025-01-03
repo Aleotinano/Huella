@@ -21,17 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,19 +74,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',          # Motor de base de datos
-        'NAME': os.environ.get('DB_NAME'),             # Nombre de tu base de datos
-        'USER': os.environ.get('DB_USER'),             # Usuario de la base de datos
-        'PASSWORD': os.environ.get('DB_PASSWORD'),     # Contraseña del usuario
-        'HOST': os.environ.get('DB_HOST'),                           # Host, usa '127.0.0.1' si está en tu máquina local
-        'PORT': os.environ.get('DB_PORT'),                                # Puerto de MySQL (default: 3306)
-        'OPTIONS': {
-            'sql_mode': 'STRICT_TRANS_TABLES',         # Opcional para evitar problemas con MySQL
-        },
-    }
-}
+
      
 
 
@@ -139,6 +122,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
     ),
 }
 
