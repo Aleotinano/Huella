@@ -1,7 +1,7 @@
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from rest_framework.response import Response
-from server.settings import EMAIL_HOST_USER
+from server.settings.base import EMAIL_HOST_USER
 
 def email(username, user_email):
     try:
