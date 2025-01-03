@@ -1,24 +1,26 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "http://localhost:8000";
 
-export async function UserRegister({ username, password }) {
+export async function UserRegister({ username, password, email }) {
+  if (!username || !password || !email) {
+    throw new Error("Todos los campos son requeridos.");
+  }
+
   try {
-    const response = await fetch(`${API_URL}/register`, {
+    const response = await fetch(`${API_URL}/Register/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, email }), // Incluye email
     });
 
-    if (!username || !password) {
-      throw new Error("El nombre de usuario y la contraseña son requeridos.");
-    }
     if (!response.ok) {
-      throw new Error("Credenciales inválidas");
+      const errorData = await response.json();
+      throw new Error(errorData.detail || "Error al registrarse");
     }
 
     const data = await response.json();
-    return data; // Devuelve los datos obtenidos del servidor
+    return data;
   } catch (error) {
-    throw error; // Propaga el error para manejarlo en el componente
+    throw error;
   }
 }

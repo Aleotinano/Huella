@@ -1,21 +1,25 @@
-import { useContext, useId, useState } from "react";
+import { useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 
-import { AuthContext } from "../../context/AuthContext";
 import { UserRegister } from "../../Hooks/UserRegister"; // Importamos la función de API
 
 export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const { authenticated, login } = useContext(AuthContext); // Contexto de autenticación
   const loginUsernameId = useId();
   const loginPasswordId = useId();
+  const loginEmailId = useId();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -28,22 +32,21 @@ export const Register = () => {
     setSuccess(null); // Resetea el estado de éxito
 
     try {
-      // Llamamos a la API de login
-      const data = await UserRegister({ username, password });
+      // Llamamos a la API de registro
+      const data = await UserRegister({ username, password, email });
 
-      // Si el login es exitoso, actualizamos el estado de autenticación
-      login();
-      setSuccess("Inicio de sesión exitoso");
+      // Si el registro es exitoso, actualizamos el estado de autenticación
+      setSuccess("Registro exitoso");
       console.log("Datos recibidos:", data);
     } catch (error) {
-      setError(error.message || "Error al iniciar sesión");
+      setError(error.message || "Error al registrarse");
     }
   };
 
   return (
     <div className={logincustom.LoginContainer}>
       <form onSubmit={handleSubmit}>
-        <h2>Registrate Ahora!</h2>
+        <h2>¡Regístrate Ahora!</h2>
 
         <label htmlFor={loginUsernameId}>Nombre de usuario</label>
         <input
@@ -63,13 +66,20 @@ export const Register = () => {
           placeholder="Ingresa tu contraseña"
         />
 
-        <button type="submit">Iniciar sesión</button>
+        <label htmlFor={loginEmailId}>Email</label>
+        <input
+          type="email"
+          id={loginEmailId}
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="Ingresa tu correo"
+        />
+
+        <button type="submit">Registrarse</button>
 
         {error && <p className={logincustom.Error}>{error}</p>}
         {success && <p className={logincustom.Success}>{success}</p>}
       </form>
-
-      {authenticated && <p>Bienvenido, ya has iniciado sesión.</p>}
     </div>
   );
 };

@@ -7,8 +7,7 @@
       "description": "Remera de algodon",
       "category": "remeras",
       "price": 5000,
-      "size": ["30"],
-      "stock": 10
+      "size": ["30"]
     },
     {
       "id": "product-2",

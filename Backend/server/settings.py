@@ -155,7 +155,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
 #CORS
-CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
@@ -168,3 +168,11 @@ CORS_ALLOW_METHODS = [
     'PATCH',
     'DELETE',
 ]
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5175"  # URL del frontend
+]
+
+# Permite credenciales
+CORS_ALLOW_CREDENTIALS = True
