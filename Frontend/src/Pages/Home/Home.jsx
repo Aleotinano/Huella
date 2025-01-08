@@ -1,9 +1,9 @@
 import React from "react";
-import { Filters } from "../../Componentes/Filters";
 import { Products } from "../../Componentes/Productos";
 import { Usefilters } from "../../Hooks/Usefilters";
 import { products as initialProducts } from "../../../products.json";
 import { Header } from "../../Componentes/Header";
+import { DescriptionItems } from "../../Componentes/DescriptionItems";
 
 export const Home = () => {
   const { filterProducts } = Usefilters();
@@ -12,7 +12,8 @@ export const Home = () => {
   return (
     <>
       <Header products={initialProducts} />
-      <Filters />
+      <DescriptionItems />
+
       <Products products={filtredProducts} />
     </>
   );

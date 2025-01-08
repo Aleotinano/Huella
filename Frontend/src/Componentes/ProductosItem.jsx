@@ -7,15 +7,11 @@ export const ProductsItem = ({
   productInCart,
   addToCart,
   removeFromCart,
-  IncartCustom,
 }) => {
   const sizes = Array.isArray(product.size) ? product.size : [];
 
   return (
-    <article
-      className={` ${productscustom.CardContainer} ${IncartCustom}`}
-      key={product.id}
-    >
+    <article className={productscustom.CardContainer} key={product.id}>
       <section>
         <img
           src={product.img}

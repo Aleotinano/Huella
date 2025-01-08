@@ -14,18 +14,23 @@
   );
 }
 
+.register {
+  background: linear-gradient(
+    to bottom left,
+    var(--secondary-color) 10%,
+    var(--secondary-color),
+    var(--soft-color)
+  );
+}
+
 /* Contenedor total */
 .totalcontainer {
   display: flex;
-  justify-content: start;
-  align-items: center;
   gap: 1rem;
   width: 100%;
   max-width: 800px;
   height: 450px;
   padding: 0.5rem;
-  margin-top: 60px;
-  font-size: 1.5rem;
   background-color: var(--secondary-color);
   border: 2px solid var(--text-color);
   border-radius: 0 1rem 0 1rem;
@@ -40,29 +45,40 @@
 }
 
 /* Formulario */
-.totalcontainer form {
+
+.InputsContainer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
-  padding: 10% 0 0;
-  font-size: 1.2rem;
+  gap: 1.5rem;
 }
 
-.totalcontainer form strong {
-  font-size: 1rem;
+.InputsContainer h1 {
+  margin-bottom: 1rem;
 }
 
-.totalcontainer form fieldset {
+.PasswordField {
+  position: relative;
+}
+
+.TogglePassword {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: none;
+}
+
+fieldset {
   position: relative;
   border: none;
-  padding: 0;
   margin-bottom: 0.5rem;
 }
 
-.totalcontainer form label {
+label {
   position: absolute;
   top: -10px;
   left: 10px;
@@ -70,9 +86,10 @@
   font-size: 0.9rem;
   color: var(--text-color);
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
-.totalcontainer form input {
+input {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
@@ -81,27 +98,12 @@
   box-sizing: border-box;
 }
 
-.totalcontainer form button {
-  padding: 0.8rem;
-  font-weight: bold;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.totalcontainer form button:hover {
-  transform: translateY(-2px);
-  background-color: var(--acent-color);
-}
-
-/* Contenedor de botones adicionales */
 .ButtonContainer {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: auto;
+  height: 100%;
 }
 
 .ButtonContainer p {
@@ -110,12 +112,12 @@
   color: var(--text-color);
 }
 
-.ButtonContainer a {
+.ButtonContainer p a {
   color: var(--primary-color);
   transition: color 0.3s ease;
 }
 
-.ButtonContainer a:hover {
+.ButtonContainer p a:hover {
   color: var(--shadow-color);
 }
 
@@ -128,11 +130,6 @@
   font-size: 1.5rem;
   color: var(--text-color);
   padding: 2rem;
-}
-
-.text {
-  font-size: 2rem;
-  color: aqua;
 }
 
 .WelcomeText h1 {
@@ -183,13 +180,16 @@
   color: var(--acent-color);
 }
 
-/* Responsividad */
 @media (max-width: 600px) {
   .LoginContainer {
     padding: 1rem;
     background-image: url(../assets/AuthImg.jpg);
     background-position: center;
     background-size: cover;
+  }
+
+  .register {
+    background-image: url(../assets/AuthImg2.jpg);
   }
 
   .totalcontainer {

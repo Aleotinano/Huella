@@ -33,11 +33,8 @@ export const Filters = () => {
 
   return (
     <section className={filerscustom.NavFilters}>
-      <header className={filerscustom.FilterHeader}>
-        <h1>Explora Nuestros Productos</h1>
-      </header>
       <fieldset className={filerscustom.filterContainer}>
-        <legend>Personaliza tu búsqueda</legend>
+        <legend>Filtros</legend>
         <ul>
           <fieldset>
             <strong>Categoría</strong>

@@ -1,5 +1,15 @@
-/* === Grid de Productos === */
+.TotalContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  align-items: flex-start;
+
+  scroll-margin-top: 60px;
+}
+
 .productGrid {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
@@ -8,7 +18,6 @@
   min-height: 100vh;
 }
 
-/* === Tarjetas === */
 .CardContainer {
   display: flex;
   flex-direction: column;
@@ -29,7 +38,6 @@
   transform: translateY(-3px);
 }
 
-/* Sección de imagen y detalles */
 .CardContainer section:first-of-type {
   min-width: 100%;
   max-width: 100%;
@@ -47,7 +55,6 @@
   gap: 0.5rem;
 }
 
-/* Estilos para los títulos */
 .TitlesCard {
   gap: 0.2em;
   display: flex;
@@ -61,12 +68,10 @@
 .TitlesCard h4 {
   color: #000;
 }
-/* Precio del artículo */
 .ArticlePrice {
   color: var(--primary-color);
 }
 
-/* Imagen del artículo */
 .CardContainer img {
   min-width: 100%;
   min-height: 80%;
@@ -76,7 +81,6 @@
   border-radius: 6px;
 }
 
-/* Contenedor del carrito */
 .CartContainer {
   width: 100%;
   display: flex;
@@ -84,7 +88,6 @@
   align-items: center;
 }
 
-/* Contador de productos */
 .SpanCountProducts {
   display: flex;
   text-align: end;
@@ -95,7 +98,6 @@
   color: var(--text-color);
 }
 
-/* Contenedor de artículos */
 .ArticlesContainer {
   width: 100%;
   display: flex;
@@ -103,8 +105,6 @@
   overflow: hidden;
   gap: 1rem;
 }
-
-/* Tamanos de productos */
 .producsize {
   display: flex;
   flex-direction: row;
@@ -117,50 +117,44 @@
   color: var(--text-color);
 }
 
-/* === Media Queries === */
-@media (max-width: 750px) {
+.LoadMoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  position: relative;
+  height: 370px;
+}
+
+.LoadMoreButton {
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .TotalContainer {
+    flex-direction: column;
+    align-items: unset;
+  }
   .productGrid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    padding: 8px;
+    padding: 4px;
+  }
+  .LoadMoreContainer {
+    height: 100px;
+  }
+
+  .LoadMoreButton {
+    font-size: 5rem;
+    background-color: transparent;
+    border: none;
   }
 }
 
 @media (max-width: 450px) {
   .productGrid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 0.5rem;
     padding: 4px;
-  }
-}
-
-@media (max-width: 375px) {
-  .productGrid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.5rem;
-    padding: 4px;
-  }
-
-  .CartContainer {
-    flex-direction: column;
-    align-items: start;
-    gap: 0.5rem;
-  }
-
-  .TitlesCard h5,
-  .TitlesCard h4 {
-    font-size: 0.9rem;
-  }
-
-  .SpanCountProducts {
-    font-size: 1rem;
-    align-items: end;
-  }
-
-  .CardContainer section:first-of-type {
-    height: 60%;
-  }
-
-  .CardContainer section:nth-child(2) {
-    height: 40%;
   }
 }

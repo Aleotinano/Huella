@@ -5,7 +5,7 @@
 }
 
 html {
-  scroll-behavior: calc(var(--transition-ease) * 1000);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,4 +20,20 @@ body {
 
 #root {
   background-color: var(--background-color); /* Mantén el fondo claro */
+}
+
+.TransformY {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

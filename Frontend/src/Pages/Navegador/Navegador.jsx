@@ -2,22 +2,20 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
-import {
-  MdMenu,
-  MdOutlinePermContactCalendar,
-  MdOutlineLogin,
-} from "react-icons/md";
+import { MdMenu, MdOutlinePermContactCalendar, MdLogout } from "react-icons/md";
 import { CartContext } from "../../Componentes/Cart";
 import { ProductsItem as ProductsInCart } from "../../Componentes/ProductosItem";
 import navcustom from "./navcustom.module.css";
 import { GiRunningShoe } from "react-icons/gi";
 import { TbCategory } from "react-icons/tb";
-import { BuyButton } from "../../Componentes/BuyButton";
+import { SubmitButton } from "../../Componentes/SubmitButton";
 import { AuthContext } from "../../context/AuthContext";
+import { Modal } from "../../Componentes/Modal";
 
 export const Navegador = () => {
   const [isNavbarVisible, setNavbarVisible] = useState(false);
   const [isCartVisible, setCartVisible] = useState(false);
+  const [ShowModal, setShowModal] = useState(false);
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
   const { authenticated, logout } = useContext(AuthContext);
 
@@ -25,6 +23,23 @@ export const Navegador = () => {
 
   const toggleNavbar = () => setNavbarVisible(!isNavbarVisible);
   const toggleCart = () => setCartVisible(!isCartVisible);
+
+  // Maneja la apertura de la modal
+  const handleShowModal = () => {
+    setShowModal(true); // Abre la modal
+  };
+
+  // Maneja el cierre de la modal
+  const handleCloseModal = () => {
+    setShowModal(false); // Cierra la modal
+  };
+
+  // Maneja la acción de logout
+  const handleLogout = () => {
+    logout(); // Ejecuta la función de logout desde el contexto
+    setShowModal(false); // Cierra la modal después del logout
+    navigate("/"); // Redirige al usuario al inicio
+  };
 
   // Función para manejar la navegación y desplazarse a una sección específica
   const navigateAndScroll = (id) => {
@@ -34,17 +49,18 @@ export const Navegador = () => {
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          block: "start",
         });
       }
-    }, 100); // Agrega un retraso para asegurar que la página cargue antes de hacer scroll
+    }, 60);
   };
 
   return (
     <nav className={navcustom.Navegador}>
       <MdMenu
-        className={`${navcustom.icon} ${navcustom.closemenu}`}
+        className={`icon color ${navcustom.closemenu}`}
         onClick={toggleNavbar}
+        title="Abrir Menu"
       />
 
       <div
@@ -53,8 +69,9 @@ export const Navegador = () => {
         }`}
       >
         <IoCloseOutline
-          className={`${navcustom.icon} ${navcustom.closemenu}`}
+          className={`icon color ${navcustom.closemenu}`}
           onClick={toggleNavbar}
+          title="Cerrar Menu"
         />
         <Link
           to="/"
@@ -62,66 +79,77 @@ export const Navegador = () => {
           title="Inicio"
           onClick={() => navigateAndScroll("Inicio")}
         >
-          <FaHome className={navcustom.icon} />
-          <strong className={navcustom.animatedlink}>Inicio</strong>
+          <FaHome className="icon" />
+          <strong>Inicio</strong>
         </Link>
         <Link
           to="/"
-          onClick={() => navigateAndScroll("Filtros")} // Navegar a Filtros
+          onClick={() => navigateAndScroll("Productos")}
           className={navcustom.StrongLinks}
           title="Categorias"
         >
-          <TbCategory className={navcustom.icon} />
-          <strong className={navcustom.animatedlink}>Categorias</strong>
+          <TbCategory className="icon" />
+          <strong>Categorias</strong>
         </Link>
         <Link
           to="/"
-          onClick={() => navigateAndScroll("Filtros")}
+          onClick={() => navigateAndScroll("Productos")}
           className={navcustom.StrongLinks}
           title="Productos"
         >
-          <GiRunningShoe className={navcustom.icon} />
-          <strong className={navcustom.animatedlink}>Productos</strong>
+          <GiRunningShoe className="icon" />
+          <strong>Productos</strong>
         </Link>
         <Link
           to="/Contactos"
           className={navcustom.StrongLinks}
           title="Contactos"
         >
-          <MdOutlinePermContactCalendar className={navcustom.icon} />
-          <strong className={navcustom.animatedlink}>Contactos</strong>
+          <MdOutlinePermContactCalendar className="icon" />
+          <strong>Contactos</strong>
         </Link>
       </div>
-      {authenticated ? (
-        <div className={navcustom.Links}>
-          <FaShoppingCart
-            onClick={toggleCart}
-            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
-          />
+      <div className={navcustom.Controls}>
+        <FaShoppingCart
+          onClick={toggleCart}
+          className="icon color"
+          title="Ver Carro"
+        />
 
-          <Link to="/UserPanel" className={navcustom.StrongLinks}>
-            <FaUser className={navcustom.icon} />
-          </Link>
-
-          <MdOutlineLogin
-            onClick={logout}
-            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
-          />
-        </div>
-      ) : (
-        <div className={navcustom.Links}>
-          <FaShoppingCart
-            onClick={toggleCart}
-            className={`${navcustom.StrongLinks} ${navcustom.icon}`}
-          />
-          <Link to="/Login" className={navcustom.StrongLinks}>
-            <FaUser className={navcustom.icon} />
-          </Link>
-          <Link to="/Register" className={navcustom.StrongLinks}>
-            <strong>Register</strong>
-          </Link>
-        </div>
-      )}
+        {authenticated ? (
+          <>
+            <Link
+              to="/UserPanel"
+              className={navcustom.StrongLinks}
+              title="Perfil "
+            >
+              <FaUser className="icon" />
+            </Link>
+            <MdLogout
+              onClick={handleShowModal} // Llama a la función para abrir la modal
+              className="icon color"
+              title="Salir"
+            />
+          </>
+        ) : (
+          <>
+            <Link
+              to="/Login"
+              className={navcustom.StrongLinks}
+              title="Iniciar sesion "
+            >
+              <FaUser className="icon" />
+            </Link>
+            <Link
+              to="/Register"
+              className={navcustom.StrongLinks}
+              title="Registrarse"
+            >
+              <strong>Register</strong>
+            </Link>
+          </>
+        )}
+      </div>
 
       <div
         className={`${navcustom.offcanvas} ${
@@ -130,12 +158,11 @@ export const Navegador = () => {
       >
         <div className={navcustom.CanvasHeader}>
           <h3>Carro de compras</h3>
-          <i>
-            <IoCloseOutline
-              className={`${navcustom.StrongLinks} ${navcustom.ClossedCart}`}
-              onClick={toggleCart}
-            />
-          </i>
+          <IoCloseOutline
+            className="icon color"
+            onClick={toggleCart}
+            title="Cerrar Menu"
+          />
         </div>
         <div className={navcustom.cartContainer}>
           {cart.length > 0 ? (
@@ -146,7 +173,6 @@ export const Navegador = () => {
                 product={product}
                 addToCart={addToCart}
                 removeFromCart={removeFromCart}
-                IncartCustom={navcustom.IncartCustom}
               />
             ))
           ) : (
@@ -154,9 +180,20 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <BuyButton Href={"/Home#Filtros"} />
+          <Link to={"/Finalizar Compra"}>
+            <SubmitButton>Comprar</SubmitButton>
+          </Link>
         </div>
       </div>
+
+      {/* Modal para confirmar el logout */}
+      {ShowModal && (
+        <Modal
+          CloseModal={handleCloseModal}
+          ModalTittle={"¿Estás seguro de que deseas cerrar sesión?"}
+          onClickButtom={handleLogout}
+        ></Modal>
+      )}
     </nav>
   );
 };

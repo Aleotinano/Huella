@@ -4,6 +4,7 @@
   --text-color: #555;
   --acent-color: #8cbfe7;
   --shadow-color: rgba(211, 84, 0, 0.3);
+  --soft-color: #f7883f;
 
   /* Font Size*/
 
@@ -38,17 +39,31 @@ strong {
 strong::after {
   content: "";
   position: absolute;
-  bottom: -2px; /* Ajusta la distancia del subrayado al texto */
+  bottom: -2px;
   left: 50%;
   width: 0;
-  height: 2px; /* Grosor del subrayado */
-  background-color: var(--acent-color); /* Color del subrayado */
-  transition: all 0.3s ease-in-out; /* Animación suave */
+  height: 2px;
+  background-color: var(--acent-color);
+  transition: all 0.3s ease-in-out;
   transform: translateX(-50%);
 }
 
 strong:hover::after {
-  width: 100%; /* Expande el subrayado */
+  width: 100%;
   left: 0;
   transform: translateX(0);
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.color {
+  color: var(--primary-color);
+  transition: ease-in-out 0.25s;
+  cursor: pointer;
+}
+
+.color:hover {
+  color: var(--acent-color);
 }

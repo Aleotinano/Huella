@@ -1,38 +1,29 @@
 .NavFilters {
   display: flex;
-  flex-direction: column;
-  margin: var(--gap-medium) 5%;
-  gap: var(--font-size-small);
+  gap: var(--gap-medium);
+  padding: 1rem;
+  flex-shrink: 0; /* Evita que los filtros se reduzcan */
 }
 
 .filterContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  width: 180px;
   padding: var(--font-size-large);
-  margin-left: var(--font-size-large);
   border-radius: 12px;
-  gap: var(--gap-medium);
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-}
-
-.FilterHeader {
-  color: var(--primary-color);
-  font-size: 1.8rem;
-  margin-left: 3rem;
-  width: 100%;
+  border: 2px solid var(--soft-color);
+  transition: transform 0.3s ease-in-out;
 }
 
 .filterContainer legend {
   font-size: var(--font-size-large);
+  color: var(--soft-color);
+  font-weight: bold;
 }
 
 .filterContainer ul {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-medium);
-  justify-content: center;
+  justify-content: space-between;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -68,11 +59,10 @@
   border-radius: var(--border-radius-medium);
   font-size: var(--font-size-small);
   width: 100%;
-  max-width: 100px;
   transition: 0.3s ease-in-out;
   text-align: start;
   border: 1px solid var(--text-color);
-  color: var(--text-color);
+  color: var(--primary-color);
   cursor: pointer;
 }
 
@@ -113,11 +103,12 @@
 }
 
 .filterContainer input[type="range"]:hover {
-  background-color: var(--shadow-color);
+  background: var(--acent-color);
+  border-color: var(--acent-color);
 }
 
 .filterContainer input[type="range"]:active {
-  background: #f2902d6a;
+  background: var(--acent-color);
 }
 
 .rangeContainer {
@@ -132,39 +123,18 @@
 }
 
 @media (max-width: 768px) {
-  .NavFilters {
-    margin: 2rem 0;
-  }
-
-  .FilterHeader {
-    font-size: 1.2rem;
-    margin-left: 0;
-    text-align: center;
-  }
-
   .filterContainer {
-    margin: 0;
-    padding: var(--font-size-medium) 8px;
+    width: 100%;
+    padding: 0.5rem;
   }
-
   .filterContainer ul {
-    gap: var(--gap-short);
+    justify-content: start;
   }
 }
 
-@media (max-width: 425px) {
-  .FilterHeader {
-    font-size: 1.2rem;
-    margin-left: 0;
-    text-align: 4;
-  }
-
+@media (max-width: 500px) {
   .filterContainer {
-    margin: 0;
-    padding: var(--font-size-medium) 8px;
-  }
-
-  .filterContainer ul {
-    gap: var(--gap-short);
+    width: 100%;
+    padding: 0.5rem;
   }
 }

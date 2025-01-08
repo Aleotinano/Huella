@@ -1,18 +1,22 @@
 import { useContext, useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
-import { UserLogin } from "../../Hooks/UserLogin"; // Importamos la función de API
+import { UserLogin } from "../../Hooks/UserLogin";
 import { BuyButton } from "../../Componentes/BuyButton";
 import AuthImg from "../../assets/AuthImg.jpg";
 import { Link } from "react-router-dom";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { SubmitButton } from "../../Componentes/SubmitButton";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { authenticated, login, user } = useContext(AuthContext); // Contexto de autenticación
+  const { authenticated, login } = useContext(AuthContext);
   const loginUsernameId = useId();
   const loginPasswordId = useId();
 
@@ -26,19 +30,19 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(null); // Resetea el estado de error
-    setSuccess(null); // Resetea el estado de éxito
+    setError(null);
+    setSuccess(null);
+    setIsSubmitting(true);
 
     try {
-      // Llamamos a la API de login
       const data = await UserLogin({ username, password });
-
-      // Si el login es exitoso, actualizamos el estado de autenticación
       login();
       setSuccess("Inicio de sesión exitoso");
       console.log("Datos recibidos:", data);
     } catch (error) {
       setError(error.message || "Error al iniciar sesión");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -47,7 +51,6 @@ export const Login = () => {
       <div className={logincustom.totalcontainer}>
         <img src={AuthImg} alt="Imagen de autenticación" />
 
-        {/* Contenido dinámico basado en la autenticación */}
         {authenticated ? (
           <div className={logincustom.WelcomeText}>
             <h1>¡Bienvenido!</h1>
@@ -64,34 +67,61 @@ export const Login = () => {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h2>Iniciar sesión</h2>
-            <fieldset>
-              <label htmlFor={loginUsernameId}>Nombre de usuario</label>
-              <input
-                type="text"
-                id={loginUsernameId}
-                value={username}
-                onChange={handleUsernameChange}
-                placeholder="Ingresa tu nombre de usuario"
-              />
-            </fieldset>
-            <fieldset>
-              <label htmlFor={loginPasswordId}>Contraseña</label>
-              <input
-                type="password"
-                id={loginPasswordId}
-                value={password}
-                onChange={handlePasswordChange}
-                placeholder="Ingresa tu contraseña"
-              />
-            </fieldset>
+            <div className={logincustom.InputsContainer}>
+              <h1>Iniciar sesión</h1>
+              <fieldset>
+                <label htmlFor={loginUsernameId}>Nombre de usuario</label>
+                <input
+                  type="text"
+                  id={loginUsernameId}
+                  value={username}
+                  onChange={handleUsernameChange}
+                  placeholder="Ingresa tu nombre de usuario"
+                />
+              </fieldset>
+              <fieldset>
+                <label htmlFor={loginPasswordId}>Contraseña</label>
+                <div className={logincustom.PasswordField}>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id={loginPasswordId}
+                    value={password}
+                    onChange={handlePasswordChange}
+                    placeholder="Ingresa tu contraseña"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={
+                      showPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+                    }
+                    className={logincustom.TogglePassword}
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash className="icon color" />
+                    ) : (
+                      <FaEye className="icon color" />
+                    )}
+                  </button>
+                </div>
+              </fieldset>
+            </div>
 
-            {error && <strong className={logincustom.Error}>{error}</strong>}
-            {success && (
+            {error ? (
+              ""
+            ) : (
+              <strong className={logincustom.Error}>{error}</strong>
+            )}
+            {success ? (
+              ""
+            ) : (
               <strong className={logincustom.Success}>{success}</strong>
             )}
+
             <div className={logincustom.ButtonContainer}>
-              <button type="submit">Iniciar sesión</button>
+              <SubmitButton disabled={isSubmitting}>
+                {isSubmitting ? "Cargando..." : "Iniciar sesión"}
+              </SubmitButton>
               <p>
                 {"Si no tienes cuenta "}
                 <Link to="/Register">registrate</Link>

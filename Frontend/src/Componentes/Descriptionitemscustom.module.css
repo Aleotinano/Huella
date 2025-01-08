@@ -1,0 +1,33 @@
+.Container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 5%;
+}
+
+.Container ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.Container ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 200px;
+  text-align: center;
+}
+
+.Item {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.Container ul li p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+}
