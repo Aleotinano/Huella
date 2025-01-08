@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from authentication.utils.email_sender import email
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserPostView(APIView):
     def post(self, request, *args, **kwargs):
@@ -23,3 +24,15 @@ class UserDetailView(APIView):
         user = request.user
 
         return Response(UserSerializer(user).data)
+    
+
+class LogoutView(APIView):
+    def post(self, request):
+        try:
+            refresh_token = request.data.get("refresh_token")
+            print(refresh_token)
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"detail": "Logout successful."}, status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
