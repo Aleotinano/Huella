@@ -8,7 +8,10 @@
     "build": "npm run build",
     "deploy": "npm run deploy",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server.js",
+    "ngrok": "ngrok http 5173",
+    "start-ngrok": "node ngrok-script.js"
   },
   "dependencies": {
     "react": "18.3.1",

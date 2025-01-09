@@ -30,14 +30,13 @@ export const Register = () => {
     setIsSubmitting(true);
 
     try {
-      // Llamamos a la API de registro
       const data = await UserRegister({ username, password, email });
-      setSuccess(true); // Indica que el registro fue exitoso
+      setSuccess(true);
       console.log("Datos recibidos:", data);
     } catch (error) {
       setError(error.message || "Error al registrarse");
     } finally {
-      setIsSubmitting(false); // Rehabilita el botón
+      setIsSubmitting(false);
     }
   };
 
