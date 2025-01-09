@@ -1,16 +1,17 @@
-import { useContext, useId, useState } from "react";
+import { useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { UserRegister } from "../../Hooks/UserRegister"; // Importamos la función de API
 import AuthImg2 from "../../assets/AuthImg2.jpg";
-import { AuthContext } from "../../context/AuthContext";
 import { BuyButton } from "../../Componentes/BuyButton";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { SubmitButton } from "../../Componentes/SubmitButton";
 
 export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false); // Cambiado a booleano para simplificar
+  const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -56,8 +57,8 @@ export const Register = () => {
             </BuyButton>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <div className={logincustom.InputsContainer}>
+          <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
+            <div>
               <h1>Crea tu cuenta</h1>
               <fieldset>
                 <label htmlFor={usernameId}>Nombre de usuario</label>
@@ -81,28 +82,42 @@ export const Register = () => {
               </fieldset>
               <fieldset>
                 <label htmlFor={passwordId}>Contraseña</label>
-                <input
-                  type="password"
-                  id={passwordId}
-                  value={password}
-                  onChange={handlePasswordChange}
-                  placeholder="Ingresa tu contraseña"
-                />
+                <div className={logincustom.PasswordField}>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id={passwordId}
+                    value={password}
+                    onChange={handlePasswordChange}
+                    placeholder="Ingresa tu contraseña"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={
+                      showPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+                    }
+                    className={logincustom.TogglePassword}
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash className="icon color" />
+                    ) : (
+                      <FaEye className="icon color" />
+                    )}
+                  </button>
+                </div>
               </fieldset>
             </div>
-            {error && <strong className={logincustom.Error}>{error}</strong>}
-            {success && (
-              <strong className={logincustom.Success}>{success}</strong>
-            )}
+            <div>
+              {error && <strong className={logincustom.Error}>{error}</strong>}
+              {success && (
+                <strong className={logincustom.Success}>{success}</strong>
+              )}
+            </div>
 
             <div className={logincustom.ButtonContainer}>
-              <BuyButton
-                disabled={isSubmitting}
-                type="submit"
-                className={logincustom.ButtonAuth}
-              >
+              <SubmitButton disabled={isSubmitting}>
                 {isSubmitting ? "Cargando..." : "Registrarse"}
-              </BuyButton>
+              </SubmitButton>
               <p>
                 ¿Ya tienes una cuenta? Inicia sesión{" "}
                 <a href="/Login" className={logincustom.Link}>

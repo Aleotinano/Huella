@@ -38,25 +38,38 @@
 }
 
 .totalcontainer img {
-  object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
   border-radius: 0 1rem 0 1rem;
 }
 
 /* Formulario */
 
-.InputsContainer {
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.FormContainer div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: space-between;
-  width: 100%;
-  gap: 1.5rem;
 }
 
-.InputsContainer h1 {
+.FormContainer h1 {
   margin-bottom: 1rem;
+}
+
+.FormContainer div p {
+  color: var(--text-color);
+}
+
+.FormContainer div p a {
+  color: var(--primary-color);
+}
+
+.FormContainer div p a:hover {
+  color: var(--acent-color);
 }
 
 .PasswordField {
@@ -72,13 +85,13 @@
   border: none;
 }
 
-fieldset {
+.FormContainer fieldset {
   position: relative;
   border: none;
   margin-bottom: 0.5rem;
 }
 
-label {
+.FormContainer label {
   position: absolute;
   top: -10px;
   left: 10px;
@@ -89,7 +102,7 @@ label {
   z-index: 1;
 }
 
-input {
+.FormContainer input {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
@@ -98,27 +111,13 @@ input {
   box-sizing: border-box;
 }
 
-.ButtonContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: auto;
-  height: 100%;
+/* Estados */
+.Error {
+  color: rgb(204, 61, 61);
 }
 
-.ButtonContainer p {
-  font-size: 1rem;
-  text-align: start;
-  color: var(--text-color);
-}
-
-.ButtonContainer p a {
-  color: var(--primary-color);
-  transition: color 0.3s ease;
-}
-
-.ButtonContainer p a:hover {
-  color: var(--shadow-color);
+.Success {
+  color: var(--acent-color);
 }
 
 /* Texto de bienvenida */
@@ -126,7 +125,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   font-size: 1.5rem;
   color: var(--text-color);
   padding: 2rem;
@@ -169,15 +168,6 @@ input {
 .ProfileLink:hover {
   color: var(--acent-color);
   border-color: var(--acent-color);
-}
-
-/* Estados */
-.Error {
-  color: rgb(204, 61, 61);
-}
-
-.Success {
-  color: var(--acent-color);
 }
 
 @media (max-width: 600px) {

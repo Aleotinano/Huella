@@ -9,6 +9,7 @@ export const Modal = ({
   CloseModal,
   onClickButtom,
   ButtonLabel,
+  Href,
 }) => {
   return (
     <div className={styles.ModalContainer}>
@@ -22,14 +23,14 @@ export const Modal = ({
         />
       </div>
       <div className={styles.ButtonContainer}>
-        <SubmitButton onClick={onClickButtom}>
-          {ButtonLabel || "Confirmar"}
-        </SubmitButton>
         <Link To={Href}>
           <button className={styles.CloseButtonCustom} onClick={CloseModal}>
             Volver
           </button>
         </Link>
+        <SubmitButton onClick={onClickButtom}>
+          {ButtonLabel || "Confirmar"}
+        </SubmitButton>
       </div>
     </div>
   );

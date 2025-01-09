@@ -12,7 +12,6 @@ export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -31,13 +30,11 @@ export const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
-    setSuccess(null);
     setIsSubmitting(true);
 
     try {
       const data = await UserLogin({ username, password });
       login();
-      setSuccess("Inicio de sesión exitoso");
       console.log("Datos recibidos:", data);
     } catch (error) {
       setError(error.message || "Error al iniciar sesión");
@@ -50,7 +47,6 @@ export const Login = () => {
     <div className={logincustom.LoginContainer}>
       <div className={logincustom.totalcontainer}>
         <img src={AuthImg} alt="Imagen de autenticación" />
-
         {authenticated ? (
           <div className={logincustom.WelcomeText}>
             <h1>¡Bienvenido!</h1>
@@ -66,8 +62,8 @@ export const Login = () => {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <div className={logincustom.InputsContainer}>
+          <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
+            <div>
               <h1>Iniciar sesión</h1>
               <fieldset>
                 <label htmlFor={loginUsernameId}>Nombre de usuario</label>
@@ -106,17 +102,9 @@ export const Login = () => {
                 </div>
               </fieldset>
             </div>
-
-            {error ? (
-              ""
-            ) : (
-              <strong className={logincustom.Error}>{error}</strong>
-            )}
-            {success ? (
-              ""
-            ) : (
-              <strong className={logincustom.Success}>{success}</strong>
-            )}
+            <div>
+              {error && <strong className={logincustom.Error}>{error}</strong>}
+            </div>
 
             <div className={logincustom.ButtonContainer}>
               <SubmitButton disabled={isSubmitting}>

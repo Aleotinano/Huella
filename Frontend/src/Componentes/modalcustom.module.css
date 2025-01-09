@@ -5,10 +5,17 @@
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Un poco más redondeado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Mayor profundidad */
   z-index: 5;
-  height: 30vh;
+  width: 90%; /* Para pantallas pequeñas */
+  max-width: 500px; /* Límite de tamaño */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Animación */
+}
+
+.ModalContainer.open {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .TittleContainer {
@@ -16,6 +23,15 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc; /* Línea separadora */
+}
+
+.TittleContainer h1 {
+  font-size: 1.5rem; /* Tamaño del título */
+  font-weight: 700;
+  color: #333; /* Color oscuro */
+  margin: 0; /* Eliminar márgenes predeterminados */
 }
 
 .ButtonContainer {
@@ -24,20 +40,21 @@
   margin-top: 20px;
 }
 
-.ButtonCustom {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+.CloseButtonCustom {
+  background-color: transparent;
+  color: var(--soft-color);
+  border: 1px solid var(--soft-color);
   border-radius: 4px;
   cursor: pointer;
+  width: 80px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: var(--transition-ease);
 }
 
-.CloseButtonCustom {
-  padding: 10px 20px;
-  background-color: #f5f5f5;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
+.CloseButtonCustom:hover {
+  border-color: var(--acent-color);
+  color: var(--acent-color);
+  transform: translateY(-1px);
 }
