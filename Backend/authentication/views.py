@@ -3,11 +3,12 @@ from rest_framework.views import APIView
 from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from authentication.utils.email_sender import email
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserPostView(APIView):
+    permission_classes = [AllowAny]
     def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data = request.data)
         if serializer.is_valid():
