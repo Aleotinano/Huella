@@ -2,7 +2,6 @@ import { useContext, useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { UserLogin } from "../../Hooks/UserLogin";
-import { BuyButton } from "../../Componentes/BuyButton";
 import AuthImg from "../../assets/AuthImg.jpg";
 import { Link } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
@@ -55,7 +54,9 @@ export const Login = () => {
             <p>¿Listo para explorar nuestros productos?</p>
 
             <div className={logincustom.Actions}>
-              <BuyButton Href="/" />
+              <Link to="/Home">
+                <SubmitButton>Comprar Ahora</SubmitButton>
+              </Link>
               <Link to="/UserPanel" className={logincustom.ProfileLink}>
                 Ir a mi perfil
               </Link>

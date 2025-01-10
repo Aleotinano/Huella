@@ -1,21 +1,35 @@
 .TotalContainer {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
   width: 100%;
   align-items: flex-start;
-
-  scroll-margin-top: 60px;
 }
 
 .productGrid {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 16px;
   content-visibility: auto;
-  min-height: 100vh;
+  width: 100%;
+}
+
+.CategorySection {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5%;
+  width: 100%;
+}
+
+.CategorySection h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .CardContainer {
@@ -23,18 +37,18 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: #fff;
-  transition: ease-in-out 0.3s;
-  box-shadow: 0 2px 5px var(--shadow-color);
+  gap: 0.75rem;
+  max-height: 420px;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background-color: var(--secondary-color);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 6px var(--shadow-color);
 }
 
 .CardContainer:hover {
-  box-shadow: 0 6px 10px var(--shadow-color);
-  transition: all 0.3s ease;
-  transform: translateY(-3px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+  transform: translateY(-5px);
 }
 
 .CardContainer section:first-of-type {
@@ -51,33 +65,37 @@
   align-items: flex-start;
   justify-content: space-between;
   text-align: start;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .TitlesCard {
-  gap: 0.2em;
+  gap: 0.2rem;
   display: flex;
   flex-direction: column;
 }
 
 .TitlesCard h5 {
+  font-size: 1rem;
   color: var(--text-color);
 }
 
 .TitlesCard h4 {
-  color: #000;
-}
-.ArticlePrice {
+  font-size: 1.2rem;
   color: var(--primary-color);
+  font-weight: bold;
+}
+
+.ArticlePrice {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent-color);
 }
 
 .CardContainer img {
-  min-width: 100%;
-  min-height: 80%;
-  max-height: 100%;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .CartContainer {
@@ -91,7 +109,7 @@
   display: flex;
   text-align: end;
   width: 100px;
-  gap: 0.5em;
+  gap: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--text-color);
@@ -104,11 +122,12 @@
   overflow: hidden;
   gap: 1rem;
 }
+
 .producsize {
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
-  font-size: 0.8rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 300;
   text-align: start;
   flex-wrap: wrap;
@@ -122,38 +141,44 @@
   align-items: center;
   margin-top: 1rem;
   position: relative;
-  height: 370px;
+  height: 100px;
 }
 
 .LoadMoreButton {
-  font-size: 5rem;
+  font-size: 3rem;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.LoadMoreButton:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
   .TotalContainer {
     flex-direction: column;
-    align-items: unset;
-  }
-  .productGrid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    padding: 4px;
-  }
-  .LoadMoreContainer {
-    height: 100px;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  .LoadMoreButton {
-    font-size: 5rem;
-    background-color: transparent;
-    border: none;
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 8px;
+  }
+
+  .LoadMoreContainer {
+    height: 80px;
   }
 }
 
 @media (max-width: 450px) {
   .productGrid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
     padding: 4px;
   }
 }

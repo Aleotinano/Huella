@@ -1,15 +1,27 @@
 .Navegador {
   width: 100%;
   height: var(--nav-height);
-  background-color: var(--secondary-color);
+  background-color: var(
+    --background-color
+  ); /* Fondo transparente por defecto */
   position: fixed;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  box-shadow: var(--shadow-color);
+  box-shadow: rgba(75, 54, 33, 0.3) 0px 4px 6px; /* Sombra marrón */
   z-index: 5;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease-in-out; /* Transición suave */
+}
+
+.Navegador.scrolled {
+  background-color: #2d1e02; /* Fondo beige medio cuando se hace scroll */
+}
+
+.Links .StrongLinks:first-of-type {
+  color: var(--accent-color);
 }
 
 .Links,
@@ -21,8 +33,9 @@
 
 .StrongLinks {
   text-decoration: none;
-  color: var(--primary-color);
-  font-weight: bold;
+  color: var(--text-color); /* Marrón oscuro */
+  font-size: 1rem;
+  font-weight: lighter;
   padding-bottom: 1px;
   transition: ease-in-out 0.25s;
   gap: 0.5rem;
@@ -32,7 +45,7 @@
 }
 
 .StrongLinks:hover {
-  color: var(--acent-color);
+  color: var(--primary-color); /* Marrón claro */
 }
 
 .closemenu {
@@ -58,10 +71,10 @@
   right: var(--offcanvas-width-hidden);
   width: var(--offcanvas-width);
   height: 100vh;
-  background-color: var(--secondary-color);
+  background-color: #d9c5a1; /* Beige medio */
   transition: var(--transition-ease);
   padding: 1rem;
-  box-shadow: var(--shadow-color);
+  box-shadow: rgba(75, 54, 33, 0.3) 0px 4px 6px; /* Sombra marrón */
   gap: 1rem;
 }
 
@@ -111,7 +124,7 @@
 }
 
 .cartContainer::-webkit-scrollbar-thumb:hover {
-  background: var(--text-color);
+  background: #4b3621; /* Marrón oscuro */
 }
 
 .BuyButtonContainer {
@@ -136,10 +149,10 @@
     left: var(--offcanvas-width-hidden);
     width: var(--offcanvas-width);
     height: 100%;
-    background-color: var(--secondary-color);
+    background-color: #d9c5a1; /* Beige medio */
     transition: var(--transition-ease);
     padding: 1rem;
-    box-shadow: var(--shadow-color);
+    box-shadow: rgba(75, 54, 33, 0.3) 0px 4px 6px; /* Sombra marrón */
     align-items: flex-start;
     z-index: 1;
   }

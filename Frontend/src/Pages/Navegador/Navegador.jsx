@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
@@ -13,6 +13,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../Componentes/Modal";
 
 export const Navegador = () => {
+  const [NavScroll, setNavScroll] = useState(false);
   const [isNavbarVisible, setNavbarVisible] = useState(false);
   const [isCartVisible, setCartVisible] = useState(false);
   const [ShowModal, setShowModal] = useState(false);
@@ -55,8 +56,20 @@ export const Navegador = () => {
     }, 60);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavScroll(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className={navcustom.Navegador}>
+    <nav className={`${navcustom.Navegador} ${NavScroll ? " scrolled " : ""}`}>
       <MdMenu
         className={`icon color ${navcustom.closemenu}`}
         onClick={toggleNavbar}

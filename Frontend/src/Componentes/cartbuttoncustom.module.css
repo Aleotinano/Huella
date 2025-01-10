@@ -2,6 +2,7 @@
   border: none;
   color: var(--text-color);
   transition: ease-in-out 0.1s;
+
   background-color: transparent;
   font-size: 1.4rem;
   display: flex;

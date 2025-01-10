@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #d35400;
-  --secondary-color: #ffffff;
-  --text-color: #555;
-  --acent-color: #8cbfe7;
-  --shadow-color: rgba(211, 84, 0, 0.3);
-  --soft-color: #f7883f;
+  --primary-color: #6b4f4f; /* Marrón rojizo */
+  --secondary-color: #f9f3e8; /* Beige suave */
+  --accent-color: #567a6f; /* Verde oliva */
+  --background-color: #fcfaf2; /* Fondo beige claro */
+  --text-color: #4a403a; /* Marrón oscuro */
+  --shadow-color: rgba(0, 0, 0, 0.15); /* Sombra sutil */
 
   /* Font Size*/
 
@@ -30,30 +30,6 @@
   --border-radius-medium: 0.5rem;
 }
 
-strong {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-strong::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--acent-color);
-  transition: all 0.3s ease-in-out;
-  transform: translateX(-50%);
-}
-
-strong:hover::after {
-  width: 100%;
-  left: 0;
-  transform: translateX(0);
-}
-
 .icon {
   font-size: 24px;
 }
@@ -65,5 +41,5 @@ strong:hover::after {
 }
 
 .color:hover {
-  color: var(--acent-color);
+  color: var(--accent-color);
 }
