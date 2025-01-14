@@ -1,34 +1,46 @@
 import React from "react";
 import headercustom from "./headercustom.module.css";
-import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className={headercustom.HeaderContainer} id="Inicio">
-      {/* Primer Contenedor: Título */}
       <div className={headercustom.firstContainer}>
-        <h1>Welcome to Huella</h1>
+        <h1 tabIndex="0">Huella</h1>
         <p className={headercustom.description}>
-          Huella es el lugar donde tus ideas toman forma. Explora, crea y
-          conecta con nosotros. ¡Descubre todo lo que tenemos para ofrecerte!
+          Explora todos nuestros productos de la más alta calidad
         </p>
-        <a href="#Productos" className={headercustom.linkButton}>
-          Ver prouctos
+        <a
+          href="#Productos"
+          className={`${headercustom.linkButton} ${headercustom.linkButtonHeader}`}
+          aria-label="Ver productos"
+        >
+          Ver productos
         </a>
       </div>
 
-      {/* Segundo Contenedor */}
       <div className={headercustom.secondContainer}>
-        {/* Primera Imagen: Enlace 1 */}
-        <div className={headercustom.secondContainerfirtsimg}>
-          <a href="#Productos" className={headercustom.linkButton}>
+        <div
+          className={headercustom.secondContainerfirtsimg}
+          aria-label="Explorar zapatillas"
+        >
+          <a
+            href="#Productos"
+            className={headercustom.linkButton}
+            aria-label="Ver zapatillas"
+          >
             Zapatillas
           </a>
         </div>
 
-        {/* Segunda Imagen: Enlace 2 */}
-        <div className={headercustom.secondContainerSecondImg}>
-          <a href="#Productos" className={headercustom.linkButton}>
+        <div
+          className={headercustom.secondContainerSecondImg}
+          aria-label="Explorar remeras"
+        >
+          <a
+            href="#Productos"
+            aria-label="Ver remeras"
+            className={headercustom.linkButton}
+          >
             Remeras
           </a>
         </div>

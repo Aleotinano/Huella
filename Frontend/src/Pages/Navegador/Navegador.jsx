@@ -25,122 +25,114 @@ export const Navegador = () => {
   const toggleNavbar = () => setNavbarVisible(!isNavbarVisible);
   const toggleCart = () => setCartVisible(!isCartVisible);
 
-  // Maneja la apertura de la modal
-  const handleShowModal = () => {
-    setShowModal(true); // Abre la modal
-  };
-
-  // Maneja el cierre de la modal
-  const handleCloseModal = () => {
-    setShowModal(false); // Cierra la modal
-  };
-
-  // Maneja la acción de logout
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
   const handleLogout = () => {
-    logout(); // Ejecuta la función de logout desde el contexto
-    setShowModal(false); // Cierra la modal después del logout
-    navigate("/"); // Redirige al usuario al inicio
+    logout();
+    setShowModal(false);
+    navigate("/");
   };
 
-  // Función para manejar la navegación y desplazarse a una sección específica
   const navigateAndScroll = (id) => {
     navigate("/");
     setTimeout(() => {
-      const targetElement = document.getElementById(id);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }, 60);
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setNavScroll(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setNavScroll(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    {
+      to: "/",
+      id: "Inicio",
+      icon: <FaHome className="icon" />,
+      label: "Inicio",
+      title: "Inicio",
+    },
+    {
+      to: "/",
+      id: "Categorias",
+      icon: <TbCategory className="icon" />,
+      label: "Categorias",
+      title: "Categorias",
+    },
+    {
+      to: "/",
+      id: "Productos",
+      icon: <GiRunningShoe className="icon" />,
+      label: "Productos",
+      title: "Productos",
+    },
+    {
+      to: "/Contactos",
+      id: null,
+      icon: <MdOutlinePermContactCalendar className="icon" />,
+      label: "Contactos",
+      title: "Contactos",
+    },
+  ];
+
   return (
-    <nav className={`${navcustom.Navegador} ${NavScroll ? " scrolled " : ""}`}>
+    <nav className={`${navcustom.Navegador} ${NavScroll ? "scrolled" : ""}`}>
+      {/*menú movil*/}
       <MdMenu
-        className={`icon color ${navcustom.closemenu}`}
+        className={`icon ${navcustom.closemenu}`}
         onClick={toggleNavbar}
         title="Abrir Menu"
       />
 
+      {/* Navegación */}
       <div
         className={`${navcustom.Links} ${
           isNavbarVisible ? navcustom.Navbarshow : navcustom.hideOffcanvas
         }`}
       >
         <IoCloseOutline
-          className={`icon color ${navcustom.closemenu}`}
+          className={`icon ${navcustom.closemenu}`}
           onClick={toggleNavbar}
           title="Cerrar Menu"
         />
-        <Link
-          to="/"
-          className={navcustom.StrongLinks}
-          title="Inicio"
-          onClick={() => navigateAndScroll("Inicio")}
-        >
-          <FaHome className="icon" />
-          <strong>Inicio</strong>
-        </Link>
-        <Link
-          to="/"
-          onClick={() => navigateAndScroll("Productos")}
-          className={navcustom.StrongLinks}
-          title="Categorias"
-        >
-          <TbCategory className="icon" />
-          <strong>Categorias</strong>
-        </Link>
-        <Link
-          to="/"
-          onClick={() => navigateAndScroll("Productos")}
-          className={navcustom.StrongLinks}
-          title="Productos"
-        >
-          <GiRunningShoe className="icon" />
-          <strong>Productos</strong>
-        </Link>
-        <Link
-          to="/Contactos"
-          className={navcustom.StrongLinks}
-          title="Contactos"
-        >
-          <MdOutlinePermContactCalendar className="icon" />
-          <strong>Contactos</strong>
-        </Link>
+        {navLinks.map(({ to, id, icon, label }) => (
+          <Link
+            key={label}
+            to={to}
+            className={navcustom.StrongLinks}
+            title={label}
+            onClick={id ? () => navigateAndScroll(id) : null}
+          >
+            {icon}
+            <strong>{label}</strong>
+          </Link>
+        ))}
       </div>
-      <div className={navcustom.Controls}>
+
+      {/* Controles */}
+      <div className={`icon ${navcustom.Controls}`}>
         <FaShoppingCart
           onClick={toggleCart}
-          className="icon color"
+          className="icon"
           title="Ver Carro"
         />
-
         {authenticated ? (
           <>
             <Link
               to="/UserPanel"
               className={navcustom.StrongLinks}
-              title="Perfil "
+              title="Perfil"
             >
               <FaUser className="icon" />
             </Link>
             <MdLogout
-              onClick={handleShowModal} // Llama a la función para abrir la modal
-              className="icon color"
+              onClick={handleShowModal}
+              className="icon"
               title="Salir"
             />
           </>
@@ -149,7 +141,7 @@ export const Navegador = () => {
             <Link
               to="/Login"
               className={navcustom.StrongLinks}
-              title="Iniciar sesion "
+              title="Iniciar sesión"
             >
               <FaUser className="icon" />
             </Link>
@@ -158,12 +150,13 @@ export const Navegador = () => {
               className={navcustom.StrongLinks}
               title="Registrarse"
             >
-              <strong>Register</strong>
+              <strong>Registrarse</strong>
             </Link>
           </>
         )}
       </div>
 
+      {/* Carro de compras */}
       <div
         className={`${navcustom.offcanvas} ${
           isCartVisible ? navcustom.showOffcanvas : navcustom.hideOffcanvas
@@ -172,7 +165,7 @@ export const Navegador = () => {
         <div className={navcustom.CanvasHeader}>
           <h3>Carro de compras</h3>
           <IoCloseOutline
-            className="icon color"
+            className="icon"
             onClick={toggleCart}
             title="Cerrar Menu"
           />
@@ -181,8 +174,8 @@ export const Navegador = () => {
           {cart.length > 0 ? (
             cart.map((product) => (
               <ProductsInCart
-                productInCart={product}
                 key={product.id}
+                productInCart={product}
                 product={product}
                 addToCart={addToCart}
                 removeFromCart={removeFromCart}
@@ -193,19 +186,19 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to={"/Finalizar Compra"}>
+          <Link to="/Finalizar Compra">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>
       </div>
 
-      {/* Modal para confirmar el logout */}
+      {/* Modal de confirmación de logout */}
       {ShowModal && (
         <Modal
           CloseModal={handleCloseModal}
-          ModalTittle={"¿Estás seguro de que deseas cerrar sesión?"}
+          ModalTittle="¿Estás seguro de que deseas cerrar sesión?"
           onClickButtom={handleLogout}
-        ></Modal>
+        />
       )}
     </nav>
   );

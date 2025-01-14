@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #6b4f4f; /* Marrón rojizo */
-  --secondary-color: #f9f3e8; /* Beige suave */
-  --accent-color: #567a6f; /* Verde oliva */
-  --background-color: #fcfaf2; /* Fondo beige claro */
-  --text-color: #4a403a; /* Marrón oscuro */
-  --shadow-color: rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  --primary-color: #6b4f4f;
+  --secondary-color: #f4e7dc;
+  --accent-color: #cb6040;
+  --background-color: #fcfaf2;
+  --text-color: #4a403a;
+  --shadow-color: rgba(0, 0, 0, 0.15);
 
   /* Font Size*/
 
@@ -23,7 +23,7 @@
   --nav-padding: 4.5rem;
   --offcanvas-width: 300px;
   --offcanvas-width-hidden: -300px;
-  --transition-ease: 0.2s ease-in-out;
+  --transition-ease: 0.15s ease-in-out;
 
   /* Border radius */
 
@@ -31,15 +31,5 @@
 }
 
 .icon {
-  font-size: 24px;
-}
-
-.color {
-  color: var(--primary-color);
-  transition: ease-in-out 0.25s;
-  cursor: pointer;
-}
-
-.color:hover {
-  color: var(--accent-color);
+  font-size: 28px;
 }

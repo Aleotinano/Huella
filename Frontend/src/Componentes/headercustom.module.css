@@ -5,55 +5,53 @@
   margin-top: 60px;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--background-color); /* Fondo general */
+  background: linear-gradient(
+    to top,
+    var(--secondary-color),
+    var(--background-color)
+  );
   scroll-margin-top: 60px;
 }
 
 .firstContainer {
-  background-image: url("../assets/background3.jpg");
-  background-position: end;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
+    url("../assets/background3.png");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   flex: 1.5;
-  max-width: 60%;
+  max-width: 65%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: start; /* Centrado vertical */
+  justify-content: start;
   align-items: start;
-  color: white;
   box-shadow: 2px 4px 6px var(--shadow-color);
   overflow: hidden;
   font-family: "Roboto", sans-serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  position: relative;
-}
-
-.firstContainer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  padding: 0 2rem;
+  min-height: 100%;
+  color: var(--background-color);
 }
 
 .firstContainer h1 {
-  font-size: 5vw;
-  padding: 6rem 2rem 0;
-  font-weight: bolder;
-  z-index: 1; /* Asegurar que quede sobre el fondo */
+  font-size: 16vw;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.5rem;
+  text-align: start;
 }
 
-.firstContainer .description {
-  padding: 1rem 2rem;
-  font-size: 2.2vw;
+.description {
+  font-size: 3vw;
   line-height: 1.5;
-  max-width: 70%;
-  z-index: 1;
+  font-family: "Lora", serif;
+  width: 80%;
+  margin-bottom: 3.5rem;
 }
 
 .secondContainer {
   flex: 1;
-  max-width: 400px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,31 +60,36 @@
 
 .secondContainerfirtsimg,
 .secondContainerSecondImg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   color: white;
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
   height: 50%;
   box-shadow: 0 4px 6px var(--shadow-color);
   font-family: "Roboto", sans-serif;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
   border-radius: 10px; /* Bordes redondeados */
-}
-
-.secondContainerfirtsimg:hover,
-.secondContainerSecondImg:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05); /* Efecto de zoom */
+  transition: var(--transition-ease);
 }
 
 .secondContainerSecondImg {
   background-image: url("../assets/background2.jpg");
   background-position: top;
+}
+
+.secondContainerSecondImg:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
+    url("../assets/background2.jpg");
+}
+
+.secondContainerfirtsimg:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
+    url("../assets/background1.jpg");
 }
 
 .secondContainerfirtsimg {
@@ -96,48 +99,111 @@
 
 .linkButton {
   text-decoration: none;
-  padding: 0.8rem 1.2rem;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
   font-size: 1.4rem;
+  transition: var(--transition-ease);
   border-radius: 2rem;
-  transition: background-color 0.3s, transform 0.2s;
+  z-index: 1;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  box-shadow: 0 2px 3px var(--text-color);
+}
+
+.linkButtonHeader {
+  margin: 0;
+  position: static;
+  padding: 1.1rem 1.5rem;
+  font-size: 1.6rem;
 }
 
 .linkButton:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: black;
-  transform: scale(1.1); /* Efecto de aumento */
+  background-color: var(--text-color);
+  color: var(--secondary-color);
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
   .HeaderContainer {
     flex-direction: column;
+    height: 100%;
   }
 
   .firstContainer {
     max-width: 100%;
-    height: 50%;
+    flex: 1;
+    min-height: 85vh;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .firstContainer h1 {
+    font-size: 25vw;
+  }
+
+  .description {
+    font-size: 4vw;
+    width: 100%;
   }
 
   .secondContainer {
+    flex: 1;
     max-width: 100%;
+    flex-direction: row;
   }
 
   .secondContainerfirtsimg,
   .secondContainerSecondImg {
-    height: 150px;
+    height: 300px;
   }
 
+  .linkButton {
+    position: static;
+  }
+}
+
+@media (max-width: 525px) {
+  .HeaderContainer {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .firstContainer {
+    max-width: 100%;
+    flex: 1;
+  }
   .firstContainer h1 {
-    font-size: 6vw;
+    font-size: 30vw;
   }
 
-  .firstContainer .description {
-    font-size: 1rem;
+  .description {
+    font-size: 8vw;
+  }
+
+  .secondContainer {
+    flex: 1;
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .secondContainerfirtsimg,
+  .secondContainerSecondImg {
+    height: 300px;
+    min-width: 100%;
+  }
+
+  .linkButtonHeader {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+  }
+
+  .linkButton {
+    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
   }
 }

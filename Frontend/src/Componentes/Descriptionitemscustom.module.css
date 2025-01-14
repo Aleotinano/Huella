@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem 5%;
-  background-color: #f4e7dc; /* Fondo general */
+  background-color: var(--secondary-color);
 }
 
 .Container ul {
@@ -17,7 +17,7 @@
 .Container ul li {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   max-width: 200px;
@@ -25,10 +25,11 @@
 }
 
 .Item {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 5rem);
 }
 
 .Container ul li p {
   font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.4;
+  font-weight: 500;
 }
