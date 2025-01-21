@@ -7,30 +7,28 @@ export const ProductsItem = ({
   productInCart,
   addToCart,
   removeFromCart,
+  Incartcustom,
 }) => {
+  /*
   const sizes = Array.isArray(product.size) ? product.size : [];
 
-  return (
-    <article className={productscustom.CardContainer} key={product.id}>
-      <section>
-        <img
-          src={product.img}
-          alt={product.name}
-          className={productscustom.ImgSize}
-        />
-      </section>
+          // Tallas 
 
-      <section className={productscustom.CardBody}>
-        <div className={productscustom.producsize}>
+          <div className={productscustom.producsize}>
           {sizes.length > 0 ? (
-            sizes.map((size, index) => (
-              <strong key={`${product.id}-${index}`}>{size}</strong>
-            ))
+            sizes.map((size, index) => <strong key={index}>{size}</strong>)
           ) : (
             <strong>No hay productos disponibles</strong>
           )}
-        </div>
+        </div> */
 
+  return (
+    <article className={`${Incartcustom} ${productscustom.CardContainer}`}>
+      <section>
+        <img src={product.img} alt={product.name} />
+      </section>
+
+      <section>
         {/* Títulos */}
         <div className={productscustom.TitlesCard}>
           <h4>{product.name}</h4>
@@ -41,28 +39,23 @@ export const ProductsItem = ({
         <div className={productscustom.CartContainer}>
           {productInCart ? (
             <div className={productscustom.SpanCountProducts}>
-              <CartButton
-                onClick={() => removeFromCart(product)}
-                title="Quitar del carro"
-              >
+              <CartButton onClick={() => removeFromCart(product)}>
                 <BsBagDash />
               </CartButton>
               <span>{productInCart.quantity}</span>
-              <CartButton
-                onClick={() => addToCart(product)}
-                title="Agregar al carro"
-              >
+              <CartButton onClick={() => addToCart(product)}>
                 <BsBagPlus />
               </CartButton>
             </div>
           ) : (
-            <CartButton
+            <button
               onClick={() => addToCart(product)}
-              title="Agregar al carro"
+              className={productscustom.AddToCartProduct}
             >
-              <BsBagPlus />
-            </CartButton>
+              Comprar
+            </button>
           )}
+
           <strong className={productscustom.ArticlePrice}>
             $ {product.price}
           </strong>

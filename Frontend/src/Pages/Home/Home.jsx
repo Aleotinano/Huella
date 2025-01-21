@@ -5,7 +5,7 @@ import { products as initialProducts } from "../../../products.json";
 import { Header } from "../../Componentes/Header";
 import { DescriptionItems } from "../../Componentes/DescriptionItems";
 
-export const Home = () => {
+export const Home = (Incartcustom) => {
   const { filterProducts } = Usefilters();
   const filtredProducts = filterProducts(initialProducts); // Filtrado de productos
 
@@ -13,8 +13,7 @@ export const Home = () => {
     <>
       <Header products={initialProducts} />
       <DescriptionItems />
-
-      <Products products={filtredProducts} />
+      <Products products={filtredProducts} Incartcustom={Incartcustom} />
     </>
   );
 };

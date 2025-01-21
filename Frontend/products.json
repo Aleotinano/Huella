@@ -1,6 +1,33 @@
 {
   "products": [
     {
+      "id": "product-1",
+      "img": "./src/assets/zapas5.jpg",
+      "name": "Zapatillas nike",
+      "description": "Zapatillas de algodón para todo el día",
+      "category": "zapatillas",
+      "price": 5000,
+      "size": ["30"]
+    },
+    {
+      "id": "product-2",
+      "img": "./src/assets/zapas6.jpg",
+      "name": "nikes",
+      "description": "Zapatillas casuales de algodón",
+      "category": "zapatillas",
+      "price": 4000,
+      "size": ["30", "32", "33"]
+    },
+    {
+      "id": "product-3",
+      "img": "./src/assets/zapas7.jpg",
+      "name": "nikes",
+      "description": "Zapatillas deportivas de tela",
+      "category": "zapatillas",
+      "price": 3000,
+      "size": ["30", "32", "33"]
+    },
+    {
       "id": "product-4",
       "img": "./src/assets/Zapas1.jpg",
       "name": "Zapatilla Casual",
@@ -46,39 +73,13 @@
       "price": 3000,
       "size": ["31", "32", "33", "35", "37", "39", "41", "44", "45"]
     },
+
     {
-      "id": "product-1",
-      "img": "./src/assets/zapas5.jpg",
-      "name": "Zapatillas nike",
-      "description": "Zapatillas de algodón para todo el día",
-      "category": "remeras",
-      "price": 5000,
-      "size": ["30"]
-    },
-    {
-      "id": "product-2",
-      "img": "./src/assets/zapas6.jpg",
-      "name": "nikes",
-      "description": "Zapatillas casuales de algodón",
-      "category": "remeras",
-      "price": 4000,
-      "size": ["30", "32", "33"]
-    },
-    {
-      "id": "product-3",
-      "img": "./src/assets/zapas7.jpg",
-      "name": "nikes",
-      "description": "Zapatillas deportivas de tela",
-      "category": "remeras",
-      "price": 3000,
-      "size": ["30", "32", "33"]
-    },
-    {
-      "id": "product-3",
+      "id": "product-9",
       "img": "./src/assets/zapas8.jpg",
       "name": "nikes",
       "description": "Zapatillas de algodón para todo el día",
-      "category": "remeras",
+      "category": "zapatillas",
       "price": 3000,
       "size": ["30", "32", "33"]
     }

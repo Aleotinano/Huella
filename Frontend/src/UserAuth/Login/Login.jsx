@@ -2,7 +2,7 @@ import { useContext, useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { UserLogin } from "../../Hooks/UserLogin";
-import AuthImg from "../../assets/AuthImg.jpg";
+import AuthImg from "../../assets/loginImg.jpeg";
 import { Link } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { SubmitButton } from "../../Componentes/SubmitButton";
@@ -43,49 +43,57 @@ export const Login = () => {
   };
 
   return (
-    <div className={logincustom.LoginContainer}>
+    <div className={logincustom.Contenedor}>
       <div className={logincustom.totalcontainer}>
-        <img src={AuthImg} alt="Imagen de autenticación" />
-        {authenticated ? (
-          <div className={logincustom.WelcomeText}>
-            <h1>¡Bienvenido!</h1>
-            <h3>{username}</h3>
-            <p>Estamos encantados de verte aquí.</p>
-            <p>¿Listo para explorar nuestros productos?</p>
-
-            <div className={logincustom.Actions}>
-              <Link to="/Home">
-                <SubmitButton>Comprar Ahora</SubmitButton>
-              </Link>
-              <Link to="/UserPanel" className={logincustom.ProfileLink}>
-                Ir a mi perfil
-              </Link>
+        {/* Right Section */}
+        <div className={logincustom.ImageSection}>
+          <img
+            src={AuthImg}
+            alt="Imagen de autenticación"
+            className={logincustom.AuthImage}
+          />
+        </div>
+        {/* Left Section */}
+        <div className={logincustom.FormSection}>
+          <h1 className={logincustom.FormTitle}>Inicia sesión</h1>
+          {authenticated ? (
+            <div className={logincustom.WelcomeText}>
+              <h1>¡Bienvenido!</h1>
+              <h3>{username}</h3>
+              <p>Estamos encantados de verte aquí.</p>
+              <div className={logincustom.Actions}>
+                <Link to="/Home">
+                  <SubmitButton>Comprar Ahora</SubmitButton>
+                </Link>
+                <Link to="/UserPanel" className={logincustom.ProfileLink}>
+                  Ir a mi perfil
+                </Link>
+              </div>
             </div>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
-            <div>
-              <h1>Iniciar sesión</h1>
+          ) : (
+            <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
               <fieldset>
-                <label htmlFor={loginUsernameId}>Nombre de usuario</label>
                 <input
                   type="text"
                   id={loginUsernameId}
                   value={username}
                   onChange={handleUsernameChange}
-                  placeholder="Ingresa tu nombre de usuario"
+                  className={logincustom.InputField}
+                  placeholder=" " // Esto asegura que funcione el estilo para inputs vacíos
                 />
+                <label htmlFor={loginUsernameId}>Nombre de usuario</label>
               </fieldset>
               <fieldset>
-                <label htmlFor={loginPasswordId}>Contraseña</label>
                 <div className={logincustom.PasswordField}>
                   <input
                     type={showPassword ? "text" : "password"}
                     id={loginPasswordId}
                     value={password}
                     onChange={handlePasswordChange}
-                    placeholder="Ingresa tu contraseña"
+                    className={logincustom.InputField}
+                    placeholder=" "
                   />
+                  <label htmlFor={loginPasswordId}>Contraseña</label>
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
@@ -94,32 +102,23 @@ export const Login = () => {
                     }
                     className={logincustom.TogglePassword}
                   >
-                    {showPassword ? (
-                      <FaEyeSlash className="icon color" />
-                    ) : (
-                      <FaEye className="icon color" />
-                    )}
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
               </fieldset>
-            </div>
-            <div>
-              {error && <strong className={logincustom.Error}>{error}</strong>}
-            </div>
-
-            <div className={logincustom.ButtonContainer}>
+              {error && <p className={logincustom.Error}>{error}</p>}
               <SubmitButton disabled={isSubmitting}>
                 {isSubmitting ? "Cargando..." : "Iniciar sesión"}
               </SubmitButton>
-              <p>
-                {"Si no tienes cuenta "}
-                <Link to="/Register">registrate</Link>
-                {" haciendo click "}
-                <Link to="/Register">aqui</Link>
+              <p className={logincustom.RegisterText}>
+                ¿No tienes cuenta?{" "}
+                <Link to="/Register" className={logincustom.RegisterLink}>
+                  Regístrate aquí
+                </Link>
               </p>
-            </div>
-          </form>
-        )}
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

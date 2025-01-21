@@ -118,7 +118,7 @@ export const Navegador = () => {
       <div className={`icon ${navcustom.Controls}`}>
         <FaShoppingCart
           onClick={toggleCart}
-          className="icon"
+          className={navcustom.ControlIcon}
           title="Ver Carro"
         />
         {authenticated ? (
@@ -128,11 +128,11 @@ export const Navegador = () => {
               className={navcustom.StrongLinks}
               title="Perfil"
             >
-              <FaUser className="icon" />
+              <FaUser className={navcustom.ControlIcon} />
             </Link>
             <MdLogout
               onClick={handleShowModal}
-              className="icon"
+              className={navcustom.ControlIcon}
               title="Salir"
             />
           </>
@@ -143,15 +143,13 @@ export const Navegador = () => {
               className={navcustom.StrongLinks}
               title="Iniciar sesión"
             >
-              <FaUser className="icon" />
+              <FaUser className={navcustom.ControlIcon} />
             </Link>
-            <Link
-              to="/Register"
-              className={navcustom.StrongLinks}
-              title="Registrarse"
-            >
-              <strong>Registrarse</strong>
-            </Link>
+            <button className={navcustom.RegisterLink}>
+              <Link to="/Register" title="Registrarse">
+                Registrarse
+              </Link>
+            </button>
           </>
         )}
       </div>
@@ -179,6 +177,7 @@ export const Navegador = () => {
                 product={product}
                 addToCart={addToCart}
                 removeFromCart={removeFromCart}
+                Incartcustom={navcustom.IncartProduct}
               />
             ))
           ) : (

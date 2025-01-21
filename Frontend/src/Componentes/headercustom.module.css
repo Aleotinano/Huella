@@ -171,6 +171,7 @@
   .HeaderContainer {
     flex-direction: column;
     height: 100%;
+    padding: 0;
   }
 
   .firstContainer {
@@ -195,6 +196,7 @@
   .secondContainerSecondImg {
     height: 300px;
     min-width: 100%;
+    border-radius: 0px;
   }
 
   .linkButtonHeader {
@@ -205,5 +207,9 @@
   .linkButton {
     padding: 1rem 1.2rem;
     font-size: 1.1rem;
+  }
+
+  .description {
+    margin-bottom: 2rem;
   }
 }

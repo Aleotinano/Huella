@@ -1,65 +1,67 @@
-.TotalContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  align-items: flex-start;
-}
-
-.productGrid {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 16px;
-  content-visibility: auto;
-  width: 100%;
-}
-
+/* Sección de categorías */
 .CategorySection {
   display: flex;
   flex-direction: column;
-  padding: 2rem 5%;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 2%; /* Espaciado interno para la sección */
   width: 100%;
+  text-transform: capitalize;
+  margin-top: 1rem;
 }
 
 .CategorySection h2 {
-  font-size: 1.8rem;
+  font-size: 4vw;
   font-weight: bold;
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--secondary-color);
+  text-align: start;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+  margin: 0 1rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  width: 50%;
+  text-transform: uppercase; /* Para todo en mayúsculas, si aplica */
 }
 
+/* Carrusel (Swiper) */
+.SwiperContainer {
+  display: flex;
+  height: 580px;
+  width: 100%;
+  padding: 1rem !important;
+}
+
+/* Tarjetas de producto */
 .CardContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  max-width: 420px;
+  height: 500px; /* Altura fija */
   gap: 0.75rem;
-  max-height: 420px;
-  padding: 1.2rem;
-  border-radius: 12px;
-  background-color: var(--secondary-color);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: var(--transition-ease);
 }
 
 .CardContainer:hover {
-  box-shadow: 0 6px 12px var(--shadow-color);
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
+/* Imágenes en las tarjetas */
+.CardContainer img {
+  width: 100%;
+  height: 100%; /* Proporción consistente */
+  object-fit: cover;
+}
+
+/* Contenido de las tarjetas */
 .CardContainer section:first-of-type {
-  min-width: 100%;
   max-width: 100%;
-  height: 70%;
+  height: 60%;
 }
 
 .CardContainer section:nth-child(2) {
   max-width: 100%;
-  height: 30%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -69,52 +71,67 @@
 }
 
 .TitlesCard {
-  gap: 0.2rem;
+  gap: 0.3rem;
   display: flex;
   flex-direction: column;
 }
 
 .TitlesCard h5 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--text-color);
 }
 
 .TitlesCard h4 {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--primary-color);
   font-weight: bold;
 }
-
 .ArticlePrice {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
-.CardContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
+/* Contenedor del carrito */
 .CartContainer {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 0.5rem;
 }
 
 .SpanCountProducts {
   display: flex;
-  text-align: end;
   width: 100px;
   gap: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: var(--text-color);
+  color: var(--accent-color);
+  align-items: end;
 }
 
+/* Botones del carrito */
+.CartButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.CartButton:hover {
+  background-color: var(--accent-color);
+}
+
+/* Contenedor de artículos */
 .ArticlesContainer {
   width: 100%;
   display: flex;
@@ -123,62 +140,135 @@
   gap: 1rem;
 }
 
-.producsize {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 300;
-  text-align: start;
-  flex-wrap: wrap;
-  width: 100%;
-  color: var(--text-color);
-}
-
-.LoadMoreContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  position: relative;
-  height: 100px;
-}
-
-.LoadMoreButton {
-  font-size: 3rem;
-  background-color: transparent;
+.AddToCartProduct {
+  background-color: var(--accent-color);
   border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: bold;
   cursor: pointer;
-  color: var(--primary-color);
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: var(--transition-ease);
+  margin-right: 30px;
 }
 
-.LoadMoreButton:hover {
-  transform: scale(1.1);
-  color: var(--accent-color);
+.AddToCartProduct:hover {
+  background-color: var(--text-color);
 }
 
+/* Para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
-  .TotalContainer {
+  .SwiperContainer {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .CategorySection h2 {
+    font-size: 6vw;
+    font-weight: bold;
+    text-align: start;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    margin: 0 1rem;
+    padding-bottom: 0.5rem;
+    width: 50%;
+    text-transform: uppercase; /* Para todo en mayúsculas, si aplica */
+  }
+
+  .CardContainer {
+    max-width: 100%;
+    height: 400px;
+    margin: 0.5rem;
+  }
+
+  .CardContainer section:first-of-type {
+    max-width: 100%;
+    height: 60%;
+  }
+
+  .CardContainer section:nth-child(2) {
+    max-width: 100%;
+    height: 40%;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    justify-content: space-between;
+    text-align: start;
+    gap: 0.75rem;
   }
 
-  .productGrid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    padding: 8px;
+  .TitlesCard h5 {
+    font-size: 1rem;
   }
 
-  .LoadMoreContainer {
-    height: 80px;
+  .TitlesCard h4 {
+    font-size: 1.5rem;
+  }
+
+  .ArticlePrice {
+    font-size: 1rem;
+  }
+
+  .SpanCountProducts {
+    font-size: 1.2rem;
   }
 }
 
-@media (max-width: 450px) {
-  .productGrid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1rem;
-    padding: 4px;
+@media (max-width: 520px) {
+  .CategorySection {
+    padding: 0.2rem;
+  }
+
+  .SwiperContainer {
+    padding: 0 !important;
+  }
+
+  .CardContainer img {
+    max-height: 250px;
+  }
+  .CategorySection h2 {
+    font-size: 8vw;
+    width: 80%;
+  }
+
+  .TitlesCard h5 {
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+
+  .TitlesCard h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  .CartContainer {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
+
+  .AddToCartProduct {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .CardContainer {
+    padding: 1rem;
+  }
+
+  .TitlesCard h5 {
+    font-size: 1.2rem;
+  }
+
+  .TitlesCard h4 {
+    font-size: 1.6rem;
+  }
+
+  .CartContainer {
+    flex-direction: row;
   }
 }

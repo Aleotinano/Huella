@@ -1,114 +1,151 @@
-/* Contenedor principal */
-.LoginContainer {
+/* Contenedor general */
+
+.Contenedor {
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 1rem;
+  background-image: url("../assets/LoginImg.jpeg");
+  background-repeat: no-repeat;
 }
 
-/* Contenedor total */
 .totalcontainer {
   display: flex;
+  width: 80%;
   gap: 1rem;
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  padding: 0.5rem;
-  background-color: var(--secondary-color);
-  border: 2px solid var(--text-color);
-  border-radius: 0 1rem 0 1rem;
+  height: 90%;
+  background-color: var(--background-color);
+  border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.totalcontainer img {
-  border-radius: 0 1rem 0 1rem;
-}
-
-/* Formulario */
-
-.FormContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* Imagen de autenticación */
+.ImageSection img {
   height: 100%;
 }
 
-.FormContainer div {
+/* Formulario */
+.FormSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 2rem;
+}
+
+.FormTitle {
+  font-size: 5vw;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+/* Contenedor de inputs y botones */
+.FormContainer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.FormContainer textarea {
-  height: 100px;
   width: 100%;
-  max-height: 100px;
-  max-width: 420px;
+  max-width: 450px;
 }
 
-.FormContainer h1 {
-  margin-bottom: 1rem;
+.FormContainer fieldset {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border: 1p solid red;
 }
 
-.FormContainer div p {
+.FormContainer label {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-size: 1.2rem;
+  color: var(--text-color, #555);
+  padding: 0 4px;
+  z-index: 1;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background-color: var(--background-color);
+}
+
+/* Estilo cuando el input está enfocado o tiene contenido */
+.FormContainer input:focus + label,
+.FormContainer input:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 8px;
+  font-size: 0.9rem;
+  color: #c67a54;
+}
+
+.FormContainer input:focus input {
+  border: 2px solid var(--accent-color);
+}
+
+.FormContainer input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
   color: var(--text-color);
+  background-color: var(--background-color);
 }
 
-.FormContainer div p a {
-  color: var(--primary-color);
+.FormContainer input:focus {
+  border: 1px solid var(--accent-color);
+  outline: none;
 }
 
-.FormContainer div p a:hover {
-  color: var(--acent-color);
-}
-
+/* Campo de contraseña con botón de mostrar/ocultar */
 .PasswordField {
   position: relative;
 }
 
 .TogglePassword {
   position: absolute;
-  right: 15px;
-  top: 0;
-  bottom: 0;
+  right: 12px;
+  top: 57%;
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
-}
-
-.FormContainer fieldset {
-  position: relative;
-  border: none;
-  margin-bottom: 0.5rem;
-}
-
-.FormContainer label {
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  background-color: #fff;
-  font-size: 0.9rem;
+  cursor: pointer;
   color: var(--text-color);
-  transition: all 0.3s ease;
-  z-index: 1;
+  font-size: 1.5rem;
 }
 
-.FormContainer input {
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: 1px solid var(--text-color);
-  border-radius: 5px;
-  box-sizing: border-box;
+.TogglePassword:hover {
+  color: var(--accent-color);
 }
 
-/* Estados */
+/* Texto de registro */
+.RegisterText {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.RegisterText a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.RegisterText a:hover {
+  color: var(--accent-color);
+}
+
+/* Mensajes de error y éxito */
 .Error {
   color: rgb(204, 61, 61);
+  font-size: 0.9rem;
 }
 
 .Success {
-  color: var(--acent-color);
+  color: var(--accent-color);
+  font-size: 0.9rem;
 }
 
 /* Texto de bienvenida */
@@ -117,99 +154,73 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 1.5rem;
   color: var(--text-color);
-  padding: 2rem;
 }
 
 .WelcomeText h1 {
   font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .WelcomeText h3 {
   font-size: 1.5rem;
-  color: var(--acent-color);
-  border-bottom: 2px solid var(--acent-color);
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   margin-bottom: 1rem;
 }
 
 .WelcomeText p {
   font-size: 1rem;
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .Actions {
   display: flex;
   gap: 1rem;
-  align-items: end;
   flex-wrap: wrap;
 }
 
 .ProfileLink {
   color: var(--primary-color);
-  font-size: 1rem;
   text-decoration: none;
   border-bottom: 1px solid var(--primary-color);
-  transition: ease-in-out 0.2s;
+  transition: all 0.3s ease;
 }
 
 .ProfileLink:hover {
-  color: var(--acent-color);
-  border-color: var(--acent-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
+/* Responsividad */
 @media (max-width: 600px) {
-  .LoginContainer {
-    background-image: url(../assets/AuthImg.jpg);
-    background-position: center;
-  }
-
-  .register {
-    background-image: url(../assets/AuthImg2.jpg);
-  }
-
-  .contacts {
-    background-image: url(../assets/ContactsImg.jpg);
-  }
-
   .totalcontainer {
-    flex-direction: row;
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 0.5rem;
-    background-color: #ffffffc2;
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: 5px;
   }
 
-  .FormContainer textarea {
-    max-width: 420px;
-  }
-
-  .totalcontainer img {
+  .ImageSection img {
     display: none;
   }
 
-  .totalcontainer form {
-    width: 100%;
+  .FormContainer {
     padding: 1rem;
   }
 
-  .totalcontainer form input {
+  .FormContainer input {
     font-size: 0.9rem;
   }
 
-  .totalcontainer form fieldset {
-    margin-bottom: 1rem;
+  .FormContainer label {
+    font-size: 0.8rem;
   }
 
-  .totalcontainer form label {
-    display: none;
-  }
-
-  .totalcontainer form button {
+  button {
     font-size: 1rem;
   }
 

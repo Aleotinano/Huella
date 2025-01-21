@@ -22,7 +22,8 @@
 .Controls {
   display: flex;
   gap: 1rem;
-  align-items: end;
+  align-items: center;
+  height: 100%;
 }
 
 .StrongLinks {
@@ -40,7 +41,7 @@
 }
 
 .StrongLinks:hover {
-  color: var(--accent-color); /* Marrón claro */
+  color: var(--accent-color);
 }
 
 .closemenu {
@@ -66,7 +67,7 @@
   right: var(--offcanvas-width-hidden);
   width: var(--offcanvas-width);
   height: 100vh;
-  background-color: #d9c5a1; /* Beige medio */
+  background-color: var(--background-color); /* Beige medio */
   transition: var(--transition-ease);
   padding: 1rem;
   box-shadow: rgba(75, 54, 33, 0.3) 0px 4px 6px; /* Sombra marrón */
@@ -135,6 +136,54 @@
   text-decoration: none;
 }
 
+.ControlIcon {
+  transition: var(--transition-ease);
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.ControlIcon:hover {
+  color: var(--accent-color);
+}
+
+.RegisterLink {
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  transition: var(--transition-ease);
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: var(--accent-color);
+}
+
+.RegisterLink a {
+  color: var(--background-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.RegisterLink:hover {
+  background-color: var(--background-color);
+  border: 2px solid var(--text-color);
+}
+
+.RegisterLink:hover a {
+  color: var(--text-color);
+}
+
+.IncartProduct {
+  margin-bottom: 1rem;
+  padding: 0;
+  max-width: 200px;
+}
+.IncartProduct h4 {
+  font-size: 1.4rem;
+}
+
+.IncartProduct h5 {
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .Links {
     display: flex;
@@ -144,12 +193,13 @@
     left: var(--offcanvas-width-hidden);
     width: var(--offcanvas-width);
     height: 100%;
-    background-color: #d9c5a1; /* Beige medio */
+    background-color: var(--background-color); /* Beige medio */
     transition: var(--transition-ease);
     padding: 1rem;
     box-shadow: rgba(75, 54, 33, 0.3) 0px 4px 6px; /* Sombra marrón */
     align-items: flex-start;
     z-index: 1;
+    padding-top: 20px;
   }
 
   /* Menu visible */
@@ -168,5 +218,16 @@
 
   .StrongLinks strong {
     font-size: var(--font-size-small);
+  }
+
+  .RegisterLink {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .RegisterLink a {
+    color: var(--background-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
   }
 }

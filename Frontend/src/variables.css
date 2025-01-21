@@ -5,6 +5,7 @@
   --background-color: #fcfaf2;
   --text-color: #4a403a;
   --shadow-color: rgba(0, 0, 0, 0.15);
+  --swiper-navigation-size: 6vw !important;
 
   /* Font Size*/
 
@@ -32,4 +33,39 @@
 
 .icon {
   font-size: 28px;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--accent-color) !important; /* Color del ícono */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Tamaño del ícono */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo más oscuro al pasar el cursor */
+  transform: scale(1.15); /* Efecto de zoom */
+  color: var(--accent-color); /* Cambiar color del ícono al hover */
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--accent-color) !important;
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--accent-color) !important;
 }
