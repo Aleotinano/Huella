@@ -1,5 +1,3 @@
-/* Contenedor general */
-
 .Contenedor {
   width: 100%;
   height: 100vh;
@@ -9,6 +7,17 @@
   align-items: center;
   background-image: url("../assets/LoginImg.jpeg");
   background-repeat: no-repeat;
+}
+
+.register {
+  background-image: url("../assets/RegisterImg.jpeg");
+}
+.contacts {
+  background-image: url("../assets/ContactosImg.jpeg");
+}
+
+.contacts .FormSection {
+  gap: 1em;
 }
 
 .totalcontainer {
@@ -21,12 +30,11 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagen de autenticación */
 .ImageSection img {
   height: 100%;
+  max-width: 500px;
+  min-width: 400px;
 }
-
-/* Formulario */
 .FormSection {
   flex: 1;
   display: flex;
@@ -34,15 +42,14 @@
   justify-content: start;
   align-items: start;
   padding: 2rem;
+  gap: 2rem;
 }
 
 .FormTitle {
   font-size: 5vw;
-  margin-bottom: 2rem;
   color: var(--accent-color);
 }
 
-/* Contenedor de inputs y botones */
 .FormContainer {
   display: flex;
   flex-direction: column;
@@ -51,20 +58,46 @@
   max-width: 450px;
 }
 
+.FormSection p {
+  font-size: 1.3rem;
+}
+
+.FormContainer textarea,
+.FormContainer input {
+  padding: 1em;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 450px;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+.FormContainer textarea {
+  max-height: 160px;
+  min-height: 100px;
+}
+
+.FormContainer textarea:focus,
+.FormContainer input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
 .FormContainer fieldset {
   position: relative;
   border: none;
   padding: 0;
   margin: 0;
-  border: 1p solid red;
 }
 
 .FormContainer label {
   position: absolute;
-  top: 12px;
+  top: 20px;
   left: 20px;
   font-size: 1.2rem;
-  color: var(--text-color, #555);
+  color: var(--text-color);
   padding: 0 4px;
   z-index: 1;
   transition: all 0.3s ease;
@@ -72,35 +105,17 @@
   background-color: var(--background-color);
 }
 
-/* Estilo cuando el input está enfocado o tiene contenido */
 .FormContainer input:focus + label,
-.FormContainer input:not(:placeholder-shown) + label {
+.FormContainer textarea:focus + label,
+.FormContainer input:not(:placeholder-shown) + label,
+.FormContainer textarea:not(:placeholder-shown) + label {
   top: -12px;
-  left: 8px;
+  left: 2px;
   font-size: 0.9rem;
-  color: #c67a54;
+  color: var(--accent-color);
+  border-radius: 3px;
 }
 
-.FormContainer input:focus input {
-  border: 2px solid var(--accent-color);
-}
-
-.FormContainer input {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  border: 1px solid var(--text-color);
-  border-radius: 5px;
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-.FormContainer input:focus {
-  border: 1px solid var(--accent-color);
-  outline: none;
-}
-
-/* Campo de contraseña con botón de mostrar/ocultar */
 .PasswordField {
   position: relative;
 }
@@ -108,7 +123,7 @@
 .TogglePassword {
   position: absolute;
   right: 12px;
-  top: 57%;
+  top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -121,34 +136,29 @@
   color: var(--accent-color);
 }
 
-/* Texto de registro */
 .RegisterText {
-  font-size: 0.9rem;
-  text-align: center;
+  font-size: 1.2rem;
   color: var(--text-color);
 }
 
 .RegisterText a {
-  color: var(--primary-color);
+  color: var(--accent-color);
   text-decoration: none;
 }
 
 .RegisterText a:hover {
-  color: var(--accent-color);
+  text-decoration: underline;
 }
 
-/* Mensajes de error y éxito */
 .Error {
   color: rgb(204, 61, 61);
   font-size: 0.9rem;
 }
-
 .Success {
   color: var(--accent-color);
   font-size: 0.9rem;
 }
 
-/* Texto de bienvenida */
 .WelcomeText {
   display: flex;
   flex-direction: column;
@@ -197,34 +207,58 @@
 }
 
 /* Responsividad */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .totalcontainer {
-    flex-direction: column;
-    margin: 1rem;
-    border-radius: 5px;
+    width: 95%;
   }
-
-  .ImageSection img {
-    display: none;
-  }
-
-  .FormContainer {
+  .FormSection {
     padding: 1rem;
   }
-
-  .FormContainer input {
-    font-size: 0.9rem;
+  .register img {
+    max-width: 450px;
   }
+}
 
-  .FormContainer label {
-    font-size: 0.8rem;
+@media (max-width: 768px) {
+  .totalcontainer {
+    background-color: rgba(244, 231, 220, 0.95);
+    justify-content: center;
   }
-
-  button {
-    font-size: 1rem;
+  .ImageSection {
+    display: none;
   }
+  .FormSection {
+    align-items: center;
+  }
+  .FormContainer {
+    max-width: 100%;
+  }
+  .FormTitle {
+    font-size: 12vw;
+    text-align: center;
+    width: 100%;
+  }
+  .RegisterText {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .Error {
+    font-size: 2rem;
+  }
+  .RegisterText a {
+    text-decoration: underline;
+  }
+}
 
-  .WelcomeText {
-    font-size: 1.2rem;
+@media (max-width: 425px) {
+  .FormTitle {
+    font-size: 14.2vw;
+  }
+  .RegisterText {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .Error {
+    font-size: 8vw;
   }
 }

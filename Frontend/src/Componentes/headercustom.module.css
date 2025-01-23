@@ -32,6 +32,7 @@
   padding: 0 2rem;
   min-height: 100%;
   color: var(--background-color);
+  border-radius: 3px; /* Bordes redondeados */
 }
 
 .firstContainer h1 {
@@ -51,7 +52,7 @@
 
 .secondContainer {
   flex: 1;
-  max-width: 380px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,11 +70,11 @@
   position: relative;
   color: white;
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   height: 50%;
   box-shadow: 0 4px 6px var(--shadow-color);
   font-family: "Roboto", sans-serif;
-  border-radius: 10px; /* Bordes redondeados */
+  border-radius: 3px; /* Bordes redondeados */
   transition: var(--transition-ease);
 }
 
@@ -106,8 +107,6 @@
   border-radius: 2rem;
   z-index: 1;
   position: absolute;
-  top: 20px;
-  left: 20px;
   margin: 1rem;
   background-color: var(--secondary-color);
   color: var(--text-color);
@@ -122,7 +121,7 @@
 }
 
 .linkButton:hover {
-  background-color: var(--text-color);
+  background-color: var(--accent-color);
   color: var(--secondary-color);
 }
 

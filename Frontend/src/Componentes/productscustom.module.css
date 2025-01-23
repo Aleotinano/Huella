@@ -1,10 +1,8 @@
-/* Sección de categorías */
 .CategorySection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0 2%; /* Espaciado interno para la sección */
+  padding: 0 2%;
   width: 100%;
   text-transform: capitalize;
   margin-top: 1rem;
@@ -14,60 +12,57 @@
   font-size: 4vw;
   font-weight: bold;
   text-align: start;
-  color: var(--text-color);
-  border-bottom: 2px solid var(--text-color);
+  color: var(--accent-color);
   margin: 0 1rem;
-  padding-bottom: 0.5rem;
-  width: 50%;
-  text-transform: uppercase; /* Para todo en mayúsculas, si aplica */
+  text-transform: uppercase;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Carrusel (Swiper) */
 .SwiperContainer {
   display: flex;
-  height: 580px;
+  height: 560px;
   width: 100%;
   padding: 1rem !important;
 }
 
-/* Tarjetas de producto */
 .CardContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-width: 420px;
-  height: 500px; /* Altura fija */
-  gap: 0.75rem;
+  height: 500px;
   transition: var(--transition-ease);
+  gap: 1em;
 }
 
 .CardContainer:hover {
   transform: scale(1.05);
 }
 
-/* Imágenes en las tarjetas */
 .CardContainer img {
   width: 100%;
-  height: 100%; /* Proporción consistente */
+  height: 100%;
   object-fit: cover;
+  border-radius: 3px;
 }
 
-/* Contenido de las tarjetas */
-.CardContainer section:first-of-type {
+.CardContainer section {
   max-width: 100%;
-  height: 60%;
-}
-
-.CardContainer section:nth-child(2) {
-  max-width: 100%;
-  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   text-align: start;
   gap: 0.75rem;
+}
+
+.CardContainer section:first-of-type {
+  height: 60%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.CardContainer section:nth-child(2) {
+  height: 40%;
 }
 
 .TitlesCard {
@@ -86,6 +81,7 @@
   color: var(--primary-color);
   font-weight: bold;
 }
+
 .ArticlePrice {
   font-size: 1.2rem;
   font-weight: bold;
@@ -93,7 +89,6 @@
   text-decoration: underline;
 }
 
-/* Contenedor del carrito */
 .CartContainer {
   width: 100%;
   display: flex;
@@ -113,25 +108,37 @@
   align-items: end;
 }
 
-/* Botones del carrito */
-.CartButton {
+.CartButton,
+.AddToCartProduct {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 0.5rem;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--transition-ease);
 }
 
-.CartButton:hover {
+.CartButton:hover,
+.AddToCartProduct:hover {
   background-color: var(--accent-color);
 }
 
-/* Contenedor de artículos */
+.AddToCartProduct {
+  background-color: var(--accent-color);
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.AddToCartProduct:hover {
+  background-color: var(--text-color);
+}
+
 .ArticlesContainer {
   width: 100%;
   display: flex;
@@ -140,63 +147,19 @@
   gap: 1rem;
 }
 
-.AddToCartProduct {
-  background-color: var(--accent-color);
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.1rem;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: var(--transition-ease);
-  margin-right: 30px;
-}
-
-.AddToCartProduct:hover {
-  background-color: var(--text-color);
-}
-
-/* Para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .SwiperContainer {
-    display: flex;
     height: 500px;
-    width: 100%;
     margin: 0 !important;
   }
 
   .CategorySection h2 {
     font-size: 6vw;
-    font-weight: bold;
-    text-align: start;
-    color: var(--text-color);
-    border-bottom: 2px solid var(--text-color);
-    margin: 0 1rem;
-    padding-bottom: 0.5rem;
-    width: 50%;
-    text-transform: uppercase; /* Para todo en mayúsculas, si aplica */
   }
 
   .CardContainer {
-    max-width: 100%;
     height: 400px;
     margin: 0.5rem;
-  }
-
-  .CardContainer section:first-of-type {
-    max-width: 100%;
-    height: 60%;
-  }
-
-  .CardContainer section:nth-child(2) {
-    max-width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    text-align: start;
-    gap: 0.75rem;
   }
 
   .TitlesCard h5 {
@@ -228,20 +191,18 @@
   .CardContainer img {
     max-height: 250px;
   }
+
   .CategorySection h2 {
-    font-size: 8vw;
+    font-size: 12vw;
     width: 80%;
   }
 
   .TitlesCard h5 {
     font-size: 0.9rem;
-    color: var(--text-color);
   }
 
   .TitlesCard h4 {
     font-size: 1.1rem;
-    color: var(--primary-color);
-    font-weight: bold;
   }
 
   .CartContainer {

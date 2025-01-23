@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import styles from "../../UserAuth/logincustom.module.css";
 import { SubmitButton } from "../../Componentes/SubmitButton";
-import Contactsimg from "../../assets/Contactsimg.jpg";
+import Contactsimg from "../../assets/ContactosImg.jpeg";
 
 export const Contacts = () => {
   // Estados para los campos del formulario
@@ -38,7 +38,6 @@ export const Contacts = () => {
 
     console.log("Datos enviados:", formData);
 
-    // Limpiar el formulario
     setUsername("");
     setEmail("");
     setMessage("");
@@ -47,56 +46,53 @@ export const Contacts = () => {
   };
 
   return (
-    <div className={`${styles.contacts} ${styles.LoginContainer}`}>
+    <div className={`${styles.Contenedor} ${styles.contacts}`}>
       <div className={styles.totalcontainer}>
-        <img src={Contactsimg} alt="Contact Us" />
+        <div className={styles.ImageSection}>
+          <img src={Contactsimg} alt="Imagen de Contactos" />
+        </div>
 
-        <form className={styles.FormContainer} onSubmit={handleSubmit}>
-          <div>
-            <h1>Contact Us</h1>
-            <p>
-              Si tienes alguna pregunta o algún problema, contáctate con
-              nosotros.
-            </p>
-          </div>
-          <div>
+        <div className={styles.FormSection}>
+          <h1 className={styles.FormTitle}>Contactos</h1>
+          <p>
+            Si tienes alguna pregunta o algún problema, contáctate con nosotros.
+          </p>
+          <form className={styles.FormContainer} onSubmit={handleSubmit}>
             <fieldset>
-              <label htmlFor={usernameId}>Nombre de usuario</label>
               <input
                 type="text"
                 id={usernameId}
                 value={username}
                 onChange={handleUsernameChange}
-                placeholder="Ingresa tu nombre de usuario"
+                placeholder=" "
                 required
               />
+              <label htmlFor={usernameId}>Nombre de usuario</label>
             </fieldset>
             <fieldset>
-              <label htmlFor={emailId}>Correo electrónico</label>
               <input
                 type="email"
                 id={emailId}
                 value={email}
                 onChange={handleEmailChange}
-                placeholder="Ingresa tu correo"
+                placeholder=" "
                 required
               />
+              <label htmlFor={emailId}>Correo electrónico</label>
             </fieldset>
             <fieldset>
-              <label htmlFor={messageId}>Mensaje</label>
               <textarea
                 id={messageId}
                 value={message}
                 onChange={handleMessageChange}
-                placeholder="Escribe tu mensaje aquí"
+                placeholder=" "
                 required
               ></textarea>
+              <label htmlFor={messageId}> Mensaje</label>
             </fieldset>
-          </div>
-          <div>
             <SubmitButton>Enviar</SubmitButton>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

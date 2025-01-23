@@ -47,11 +47,7 @@ export const Login = () => {
       <div className={logincustom.totalcontainer}>
         {/* Right Section */}
         <div className={logincustom.ImageSection}>
-          <img
-            src={AuthImg}
-            alt="Imagen de autenticación"
-            className={logincustom.AuthImage}
-          />
+          <img src={AuthImg} alt="Imagen de autenticación" />
         </div>
         {/* Left Section */}
         <div className={logincustom.FormSection}>
@@ -74,12 +70,11 @@ export const Login = () => {
             <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
               <fieldset>
                 <input
+                  placeholder=" "
                   type="text"
                   id={loginUsernameId}
                   value={username}
                   onChange={handleUsernameChange}
-                  className={logincustom.InputField}
-                  placeholder=" " // Esto asegura que funcione el estilo para inputs vacíos
                 />
                 <label htmlFor={loginUsernameId}>Nombre de usuario</label>
               </fieldset>
@@ -90,7 +85,6 @@ export const Login = () => {
                     id={loginPasswordId}
                     value={password}
                     onChange={handlePasswordChange}
-                    className={logincustom.InputField}
                     placeholder=" "
                   />
                   <label htmlFor={loginPasswordId}>Contraseña</label>
@@ -107,11 +101,12 @@ export const Login = () => {
                 </div>
               </fieldset>
               {error && <p className={logincustom.Error}>{error}</p>}
+
               <SubmitButton disabled={isSubmitting}>
-                {isSubmitting ? "Cargando..." : "Iniciar sesión"}
+                {isSubmitting ? "Iniciando sesión..." : "Iniciar sesión"}
               </SubmitButton>
               <p className={logincustom.RegisterText}>
-                ¿No tienes cuenta?{" "}
+                {"¿No tienes cuenta? "}
                 <Link to="/Register" className={logincustom.RegisterLink}>
                   Regístrate aquí
                 </Link>

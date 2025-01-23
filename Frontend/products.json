@@ -2,86 +2,66 @@
   "products": [
     {
       "id": "product-1",
-      "img": "./src/assets/zapas5.jpg",
-      "name": "Zapatillas nike",
-      "description": "Zapatillas de algodón para todo el día",
+      "img": "./src/assets/zapas1.jpeg",
+      "name": "Nike Air Max",
+      "description": "Amortiguación superior para el día a día.",
       "category": "zapatillas",
-      "price": 5000,
-      "size": ["30"]
+      "price": 3000,
+      "size": ["30", "31", "32"]
     },
     {
       "id": "product-2",
-      "img": "./src/assets/zapas6.jpg",
-      "name": "nikes",
-      "description": "Zapatillas casuales de algodón",
+      "img": "./src/assets/zapas2.jpeg",
+      "name": "Nike Court Vision",
+      "description": "Estilo clásico y cómodo.",
       "category": "zapatillas",
-      "price": 4000,
-      "size": ["30", "32", "33"]
+      "price": 4200,
+      "size": ["30", "32", "33", "34"]
     },
     {
       "id": "product-3",
-      "img": "./src/assets/zapas7.jpg",
-      "name": "nikes",
-      "description": "Zapatillas deportivas de tela",
+      "img": "./src/assets/zapas3.jpeg",
+      "name": "Nike Revolution",
+      "description": "Ligeras y transpirables para deportes.",
       "category": "zapatillas",
-      "price": 3000,
-      "size": ["30", "32", "33"]
+      "price": 3500,
+      "size": ["31", "32", "33"]
     },
     {
       "id": "product-4",
-      "img": "./src/assets/Zapas1.jpg",
-      "name": "Zapatilla Casual",
-      "description": "Confort y estilo",
+      "img": "./src/assets/zapas4.jpeg",
+      "name": "Nike Flex Runner",
+      "description": "Comodidad y estilo urbano.",
       "category": "zapatillas",
-      "price": 5000,
-      "size": ["30", "34", "35"]
+      "price": 4800,
+      "size": ["30", "34", "35", "36"]
     },
     {
       "id": "product-5",
-      "img": "./src/assets/Zapas2.jpg",
-      "name": "Zapatilla Deportiva",
-      "description": "Para todo terreno",
+      "img": "./src/assets/Zapas5.jpg",
+      "name": "Nike Trail Explorer",
+      "description": "Durabilidad para terrenos difíciles.",
       "category": "zapatillas",
-      "price": 4000,
-      "size": ["33", "34", "35"]
+      "price": 5200,
+      "size": ["33", "34", "35", "37"]
     },
     {
       "id": "product-6",
-
-      "img": "./src/assets/Zapas3.jpg",
-      "name": "Zapatilla Running",
-      "description": "Ligera y flexible",
+      "img": "./src/assets/Zapas6.jpeg",
+      "name": "Nike Run Swift",
+      "description": "Ligeras y flexibles para correr.",
       "category": "zapatillas",
-      "price": 3000,
-      "size": ["31", "33"]
+      "price": 3800,
+      "size": ["31", "33", "35"]
     },
-    {
-      "id": "product-7",
-      "img": "./src/assets/Zapas4.jpg",
-      "name": "Zapatilla Running",
-      "description": "zapatos de cuero",
-      "category": "zapatillas",
-      "price": 3000,
-      "size": ["31", "32", "33", "35", "37", "39", "41", "44", "45"]
-    },
-    {
-      "id": "product-8",
-      "img": "./src/assets/zapatos1.jpg",
-      "name": "Zapatilla Running",
-      "description": "pumas",
-      "category": "zapatillas",
-      "price": 3000,
-      "size": ["31", "32", "33", "35", "37", "39", "41", "44", "45"]
-    },
-
     {
       "id": "product-9",
-      "img": "./src/assets/zapas8.jpg",
-      "name": "nikes",
-      "description": "Zapatillas de algodón para todo el día",
+      "img": "./src/assets/zapas7.jpeg",
+      "name": "Nike Everyday Comfort",
+      "description": "Diseño minimalista para uso diario.",
       "category": "zapatillas",
-      "price": 3000,
-      "size": ["30", "32", "33"]
+      "price": 3200,
+      "size": ["30", "32", "33", "34"]
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { UserRegister } from "../../Hooks/UserRegister"; // Importamos la función de API
-import AuthImg2 from "../../assets/AuthImg2.jpg";
+import AuthImg2 from "../../assets/RegisterImg.jpeg";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { SubmitButton } from "../../Componentes/SubmitButton";
 import { Link } from "react-router-dom";
@@ -41,56 +41,66 @@ export const Register = () => {
   };
 
   return (
-    <div className={`${logincustom.LoginContainer} ${logincustom.register}`}>
+    <div className={`${logincustom.Contenedor} ${logincustom.register}`}>
       <div className={logincustom.totalcontainer}>
-        <img src={AuthImg2} alt="Imagen de autenticación" />
+        {/* Right Section */}
 
-        {success ? (
-          <div className={logincustom.WelcomeText}>
-            <h1>¡Registro exitoso!</h1>
-            <h3>{username}</h3>
-            <p>Tu cuenta ha sido creada exitosamente.</p>
-            <p>¿Listo para iniciar sesión?</p>
-            <Link>
-              <SubmitButton Href="/Login" type="button">
-                Inicia sesión
-              </SubmitButton>
-            </Link>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
-            <div>
-              <h1>Crea tu cuenta</h1>
+        <div className={logincustom.ImageSection}>
+          <img
+            src={AuthImg2}
+            alt="Imagen de autenticación"
+            className={logincustom.AuthImage}
+          />
+        </div>
+        {/* Left Section */}
+        <div className={logincustom.FormSection}>
+          <h1 className={logincustom.FormTitle}>Crea tu cuenta</h1>
+
+          {success ? (
+            <div className={logincustom.WelcomeText}>
+              <h1>¡Registro exitoso!</h1>
+              <h3>{username}</h3>
+              <p>Tu cuenta ha sido creada exitosamente.</p>
+              <p>¿Listo para iniciar sesión?</p>
+              <Link>
+                <SubmitButton Href="/Login" type="button">
+                  Inicia sesión
+                </SubmitButton>
+              </Link>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className={logincustom.FormContainer}>
               <fieldset>
-                <label htmlFor={usernameId}>Nombre de usuario</label>
                 <input
+                  placeholder=" "
                   type="text"
                   id={usernameId}
                   value={username}
                   onChange={handleUsernameChange}
-                  placeholder="Ingresa tu nombre de usuario"
                 />
+                <label htmlFor={usernameId}>Nombre de usuario</label>
               </fieldset>
               <fieldset>
-                <label htmlFor={emailId}>Correo electrónico</label>
                 <input
                   type="email"
                   id={emailId}
                   value={email}
                   onChange={handleEmailChange}
-                  placeholder="Ingresa tu correo"
+                  placeholder=" "
                 />
+                <label htmlFor={emailId}>Correo electrónico</label>
               </fieldset>
               <fieldset>
-                <label htmlFor={passwordId}>Contraseña</label>
                 <div className={logincustom.PasswordField}>
                   <input
                     type={showPassword ? "text" : "password"}
                     id={passwordId}
                     value={password}
                     onChange={handlePasswordChange}
-                    placeholder="Ingresa tu contraseña"
+                    placeholder=" "
                   />
+                  <label htmlFor={passwordId}>Contraseña</label>
+
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
@@ -99,35 +109,24 @@ export const Register = () => {
                     }
                     className={logincustom.TogglePassword}
                   >
-                    {showPassword ? (
-                      <FaEyeSlash className="icon color" />
-                    ) : (
-                      <FaEye className="icon color" />
-                    )}
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
               </fieldset>
-            </div>
-            <div>
               {error && <strong className={logincustom.Error}>{error}</strong>}
-              {success && (
-                <strong className={logincustom.Success}>{success}</strong>
-              )}
-            </div>
 
-            <div className={logincustom.ButtonContainer}>
               <SubmitButton disabled={isSubmitting}>
                 {isSubmitting ? "Cargando..." : "Registrarse"}
               </SubmitButton>
-              <p>
-                ¿Ya tienes una cuenta? Inicia sesión{" "}
-                <a href="/Login" className={logincustom.Link}>
-                  aquí
+              <p className={logincustom.RegisterText}>
+                {"¿Ya tienes una cuenta? "}
+                <a href="/Login" className={logincustom.RegisterLink}>
+                  Inicia sesión aquí
                 </a>
               </p>
-            </div>
-          </form>
-        )}
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -32,12 +32,14 @@ export const Products = ({ products, Incartcustom }) => {
         slidesPerView={5} // Valor predeterminado
         breakpoints={{
           0: { slidesPerView: 1, spaceBetween: 10 }, // Tres tarjetas para pantallas muy pequeñas
-          321: { slidesPerView: 2, spaceBetween: 10 }, // Tres tarjetas para pantallas pequeñas
+          320: { slidesPerView: 1.4, spaceBetween: 10 }, // Tres tarjetas para pantallas pequeñas
 
-          600: { slidesPerView: 3, spaceBetween: 15 }, // Tres tarjetas para pantallas pequeñas
-          720: { slidesPerView: 3, spaceBetween: 15 }, // Tres tarjetas para tablets
-          1024: { slidesPerView: 4, spaceBetween: 20 }, // Cuatro tarjetas para laptops
-          1440: { slidesPerView: 5, spaceBetween: 25 }, // Cinco tarjetas para pantallas grandes
+          425: { slidesPerView: 2, spaceBetween: 10 }, // Tres tarjetas para pantallas pequeñas
+
+          600: { slidesPerView: 2.2, spaceBetween: 15 }, // Tres tarjetas para pantallas pequeñas
+          720: { slidesPerView: 2.5, spaceBetween: 15 }, // Tres tarjetas para tablets
+          1024: { slidesPerView: 3.5, spaceBetween: 20 }, // Cuatro tarjetas para laptops
+          1440: { slidesPerView: 4.5, spaceBetween: 25 }, // Cinco tarjetas para pantallas grandes
           1720: { slidesPerView: 6, spaceBetween: 30 }, // Seis tarjetas para pantallas muy grandes
         }}
         className={productscustom.SwiperContainer}
