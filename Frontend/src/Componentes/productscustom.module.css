@@ -8,6 +8,12 @@
   margin-top: 1rem;
 }
 
+.CategoryTitle {
+  display: flex;
+  align-items: center; /* Alinea el h2 y la línea verticalmente */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
 .CategorySection h2 {
   font-size: 4vw;
   font-weight: bold;
@@ -16,6 +22,16 @@
   margin: 0 1rem;
   text-transform: uppercase;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.CategoryTitle::after {
+  content: "";
+  flex: 1; /* Hace que la línea ocupe el espacio restante */
+  height: 4px; /* Grosor de la línea */
+  background-color: var(--accent-color); /* Color de la línea */
+  margin-left: 1rem; /* Espacio entre el texto y la línea */
 }
 
 .SwiperContainer {

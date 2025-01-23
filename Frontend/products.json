@@ -1,6 +1,96 @@
 {
   "products": [
     {
+      "id": "product-10",
+      "img": "./src/assets/remeras1.jpeg",
+      "name": "Remera Vintage Rock",
+      "description": "Estilo clásico con estampado de banda de rock.",
+      "category": "remeras",
+      "price": 2500,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": "product-11",
+      "img": "./src/assets/remeras2.jpeg",
+      "name": "Remera Vintage Denim",
+      "description": "Diseño desgastado con detalles en denim.",
+      "category": "remeras",
+      "price": 2800,
+      "size": ["M", "L", "XL"]
+    },
+    {
+      "id": "product-12",
+      "img": "./src/assets/remeras3.jpeg",
+      "name": "Remera Vintage Retro",
+      "description": "Estampado retro de los años 80.",
+      "category": "remeras",
+      "price": 2200,
+      "size": ["S", "M"]
+    },
+    {
+      "id": "product-13",
+      "img": "./src/assets/remeras4.jpeg",
+      "name": "Remera Vintage Classic",
+      "description": "Corte clásico y cómodo para uso diario.",
+      "category": "remeras",
+      "price": 2000,
+      "size": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "product-14",
+      "img": "./src/assets/remeras5.jpeg",
+      "name": "Remera Vintage Band",
+      "description": "Estampado icónico de bandas de los 90.",
+      "category": "remeras",
+      "price": 2700,
+      "size": ["M", "L"]
+    },
+    {
+      "id": "product-15",
+      "img": "./src/assets/remeras6.jpeg",
+      "name": "Remera Vintage Stripes",
+      "description": "Rayas clásicas con toque vintage.",
+      "category": "remeras",
+      "price": 2300,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": "product-16",
+      "img": "./src/assets/remeras7.jpeg",
+      "name": "Remera Vintage Graphic",
+      "description": "Diseño gráfico inspirado en los 70.",
+      "category": "remeras",
+      "price": 2600,
+      "size": ["M", "L", "XL"]
+    },
+    {
+      "id": "product-17",
+      "img": "./src/assets/remeras8.jpeg",
+      "name": "Remera Vintage Oversized",
+      "description": "Corte oversized para un look relajado.",
+      "category": "remeras",
+      "price": 2400,
+      "size": ["L", "XL"]
+    },
+    {
+      "id": "product-18",
+      "img": "./src/assets/remeras9.jpeg",
+      "name": "Remera Vintage Minimal",
+      "description": "Diseño minimalista con detalles vintage.",
+      "category": "remeras",
+      "price": 2100,
+      "size": ["S", "M"]
+    },
+    {
+      "id": "product-19",
+      "img": "./src/assets/remeras10.jpeg",
+      "name": "Remera Vintage Color Block",
+      "description": "Combinación de colores en bloque, estilo retro.",
+      "category": "remeras",
+      "price": 2900,
+      "size": ["M", "L", "XL"]
+    },
+    {
       "id": "product-1",
       "img": "./src/assets/zapas1.jpeg",
       "name": "Nike Air Max",
@@ -11,7 +101,7 @@
     },
     {
       "id": "product-2",
-      "img": "./src/assets/zapas2.jpeg",
+      "img": "./src/assets/zapas2.jpg",
       "name": "Nike Court Vision",
       "description": "Estilo clásico y cómodo.",
       "category": "zapatillas",
@@ -38,7 +128,7 @@
     },
     {
       "id": "product-5",
-      "img": "./src/assets/Zapas5.jpg",
+      "img": "./src/assets/Zapas5.jpeg",
       "name": "Nike Trail Explorer",
       "description": "Durabilidad para terrenos difíciles.",
       "category": "zapatillas",
@@ -62,6 +152,87 @@
       "category": "zapatillas",
       "price": 3200,
       "size": ["30", "32", "33", "34"]
+    },
+    {
+      "id": "product-20",
+      "img": "./src/assets/gorras1.jpeg",
+      "name": "Gorra Clásica Beige",
+      "description": "Ajuste cómodo y transpirable.",
+      "category": "gorras",
+      "price": 1500,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-21",
+      "img": "./src/assets/gorras2.jpeg",
+      "name": "Gorra Clásica Negra",
+      "description": "Diseño clásico en negro.",
+      "category": "gorras",
+      "price": 1800,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-22",
+      "img": "./src/assets/gorras3.jpeg",
+      "name": "Gorra Vintage Verde",
+      "description": "Estilo retro y detalles vintage.",
+      "category": "gorras",
+      "price": 2000,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-23",
+      "img": "./src/assets/gorras4.jpeg",
+      "name": "Gorra de Caricatura",
+      "description": "Estilo deportivo y moderno.",
+      "category": "gorras",
+      "price": 1700,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-24",
+      "img": "./src/assets/gorras5.jpeg",
+      "name": "Gorra Militar Verde",
+      "description": "Diseño robusto y resistente.",
+      "category": "gorras",
+      "price": 1900,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-25",
+      "img": "./src/assets/gorras6.jpeg",
+      "name": "Gorra de Pana Marrón",
+      "description": "Textura suave y elegante.",
+      "category": "gorras",
+      "price": 2100,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-26",
+      "img": "./src/assets/gorras7.jpeg",
+      "name": "Gorra Trucker Negra",
+      "description": "Estilo urbano y moderno.",
+      "category": "gorras",
+      "price": 1600,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-27",
+      "img": "./src/assets/gorras8.jpeg",
+      "name": "Gorra Plana Gris",
+      "description": "Diseño minimalista y versátil.",
+      "category": "gorras",
+      "price": 1750,
+      "size": ["Única"]
+    },
+    {
+      "id": "product-28",
+      "img": "./src/assets/gorras9.jpeg",
+      "name": "Gorra Ajustable Azul Marino",
+      "description": "Ajuste perfecto y cómodo.",
+      "category": "gorras",
+      "price": 1850,
+      "size": ["Única"]
     }
   ]
 }
