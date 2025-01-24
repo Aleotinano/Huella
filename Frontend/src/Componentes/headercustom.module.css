@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   flex: 1.5;
-  max-width: 65%;
+  max-width: 60%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
   padding: 0 2rem;
   min-height: 100%;
   color: var(--background-color);
-  border-radius: 3px; /* Bordes redondeados */
+  border-radius: 3px;
 }
 
 .firstContainer h1 {
@@ -52,7 +52,7 @@
 
 .secondContainer {
   flex: 1;
-  max-width: 400px;
+  max-width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,32 +70,29 @@
   position: relative;
   color: white;
   width: 100%;
-  max-width: 400px;
   height: 50%;
   box-shadow: 0 4px 6px var(--shadow-color);
   font-family: "Roboto", sans-serif;
-  border-radius: 3px; /* Bordes redondeados */
+  border-radius: 3px;
   transition: var(--transition-ease);
 }
 
 .secondContainerSecondImg {
-  background-image: url("../assets/background2.jpg");
-  background-position: top;
+  background-image: url("../assets/zapas4.jpeg");
 }
 
 .secondContainerSecondImg:hover {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
-    url("../assets/background2.jpg");
+    url("../assets/remeras2.jpeg");
 }
 
 .secondContainerfirtsimg:hover {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
-    url("../assets/background1.jpg");
+    url("../assets/remeras2.jpeg");
 }
 
 .secondContainerfirtsimg {
-  background-image: url("../assets/background1.jpg");
-  background-position: center;
+  background-image: url("../assets/remeras10.jpeg");
 }
 
 .linkButton {

@@ -24,7 +24,7 @@ export const Header = () => {
           aria-label="Explorar zapatillas"
         >
           <a
-            href="#Productos"
+            href="#zapatillas"
             className={headercustom.linkButton}
             aria-label="Ver zapatillas"
           >
@@ -37,7 +37,7 @@ export const Header = () => {
           aria-label="Explorar remeras"
         >
           <a
-            href="#Productos"
+            href="#remeras"
             aria-label="Ver remeras"
             className={headercustom.linkButton}
           >

@@ -65,7 +65,11 @@ export const Products = ({ products, Incartcustom }) => {
   return (
     <div className={productscustom.TotalContainer} id="Productos">
       {categories.map((category) => (
-        <div key={category} className={productscustom.CategorySection}>
+        <div
+          key={category}
+          className={productscustom.CategorySection}
+          id={category}
+        >
           <div>
             <h2 className={productscustom.CategoryTitle}>{category}</h2>
           </div>

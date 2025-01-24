@@ -13,7 +13,6 @@ export const Login = () => {
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
   const { authenticated, login } = useContext(AuthContext);
   const loginUsernameId = useId();
   const loginPasswordId = useId();
