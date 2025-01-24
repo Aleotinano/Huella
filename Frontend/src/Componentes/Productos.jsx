@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import { ProductsItem } from "./ProductosItem";
 import productscustom from "./productscustom.module.css";
 import { CartContext } from "./Cart";
@@ -7,17 +7,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { useCategories } from "../Hooks/UseCategories";
 
 export const Products = ({ products, Incartcustom }) => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
-  // Obtener categorías únicas con useMemo para evitar recalcular en cada render
-  const categories = useMemo(
-    () => [...new Set(products.map((product) => product.category))],
-    [products]
-  );
+  const categories = useCategories(products);
 
-  // Función para renderizar productos de una categoría
   const renderProducts = (category) => {
     const filteredProducts = products.filter(
       (product) => product.category === category
@@ -28,19 +24,19 @@ export const Products = ({ products, Incartcustom }) => {
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
-        spaceBetween={10} // Espacio reducido entre diapositivas
-        slidesPerView={5} // Valor predeterminado
+        spaceBetween={10}
+        slidesPerView={5}
         breakpoints={{
-          0: { slidesPerView: 1, spaceBetween: 10 }, // Tres tarjetas para pantallas muy pequeñas
-          320: { slidesPerView: 1.4, spaceBetween: 10 }, // Tres tarjetas para pantallas pequeñas
+          0: { slidesPerView: 1, spaceBetween: 10 },
+          320: { slidesPerView: 1.4, spaceBetween: 10 },
 
-          425: { slidesPerView: 2, spaceBetween: 10 }, // Tres tarjetas para pantallas pequeñas
+          425: { slidesPerView: 2, spaceBetween: 10 },
 
-          600: { slidesPerView: 2.2, spaceBetween: 15 }, // Tres tarjetas para pantallas pequeñas
-          720: { slidesPerView: 2.5, spaceBetween: 15 }, // Tres tarjetas para tablets
-          1024: { slidesPerView: 3.5, spaceBetween: 20 }, // Cuatro tarjetas para laptops
-          1440: { slidesPerView: 4.5, spaceBetween: 25 }, // Cinco tarjetas para pantallas grandes
-          1720: { slidesPerView: 6, spaceBetween: 30 }, // Seis tarjetas para pantallas muy grandes
+          600: { slidesPerView: 2.2, spaceBetween: 15 },
+          720: { slidesPerView: 2.5, spaceBetween: 15 },
+          1024: { slidesPerView: 3.5, spaceBetween: 20 },
+          1440: { slidesPerView: 4.5, spaceBetween: 25 },
+          1720: { slidesPerView: 6, spaceBetween: 30 },
         }}
         className={productscustom.SwiperContainer}
       >

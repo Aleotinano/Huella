@@ -3,14 +3,15 @@ import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdMenu, MdOutlinePermContactCalendar, MdLogout } from "react-icons/md";
+import { PiTShirtFill } from "react-icons/pi";
 import { CartContext } from "../../Componentes/Cart";
 import { ProductsItem as ProductsInCart } from "../../Componentes/ProductosItem";
 import navcustom from "./navcustom.module.css";
-import { GiRunningShoe } from "react-icons/gi";
 import { TbCategory } from "react-icons/tb";
 import { SubmitButton } from "../../Componentes/SubmitButton";
 import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../Componentes/Modal";
+import { useCategories } from "../../Hooks/UseCategories";
 
 export const Navegador = () => {
   const [NavScroll, setNavScroll] = useState(false);
@@ -19,6 +20,7 @@ export const Navegador = () => {
   const [ShowModal, setShowModal] = useState(false);
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
   const { authenticated, logout } = useContext(AuthContext);
+  const categories = useCategories();
 
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ export const Navegador = () => {
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
   const handleLogout = () => {
     logout();
     setShowModal(false);
@@ -58,25 +61,18 @@ export const Navegador = () => {
       title: "Inicio",
     },
     {
-      to: "/",
-      id: "Categorias",
-      icon: <TbCategory className="icon" />,
-      label: "Categorias",
-      title: "Categorias",
-    },
-    {
-      to: "/",
-      id: "Productos",
-      icon: <GiRunningShoe className="icon" />,
-      label: "Productos",
-      title: "Productos",
-    },
-    {
       to: "/Contactos",
-      id: null,
+      id: "Contactos",
       icon: <MdOutlinePermContactCalendar className="icon" />,
       label: "Contactos",
       title: "Contactos",
+    },
+    {
+      to: "/#Productos",
+      id: "Productos",
+      icon: <PiTShirtFill className="icon" />,
+      label: "Productos",
+      title: "Productos",
     },
   ];
 
@@ -112,6 +108,18 @@ export const Navegador = () => {
             <strong>{label}</strong>
           </Link>
         ))}
+        {/* Dropdown de categorías */}
+        <div className={navcustom.dropdown}>
+          <button className={navcustom.dropbtn}>
+            Categorías
+            <TbCategory className={navcustom.icon} />
+          </button>
+          <div className={navcustom.dropdownContent}>
+            {categories.map((category) => (
+              <a href={`/#${category}`}>{category}</a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Controles */}
