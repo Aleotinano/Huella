@@ -15,7 +15,7 @@
 
 .firstContainer {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
-    url("../assets/background3.jpg");
+    url("../../public/assets/background3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,21 +78,19 @@
 }
 
 .secondContainerSecondImg {
-  background-image: url("../assets/zapas4.jpeg");
+  background-image: url("../../public/assets/zapas4.jpeg");
 }
 
 .secondContainerSecondImg:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
-    url("../assets/remeras2.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015));
 }
 
 .secondContainerfirtsimg:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015)),
-    url("../assets/remeras2.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015));
 }
 
 .secondContainerfirtsimg {
-  background-image: url("../assets/remeras10.jpeg");
+  background-image: url("../../public/assets/remeras10.jpeg");
 }
 
 .linkButton {

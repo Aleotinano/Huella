@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import styles from "../../UserAuth/logincustom.module.css";
 import { SubmitButton } from "../../Componentes/SubmitButton";
-import Contactsimg from "../../assets/ContactosImg.jpeg";
+import Contactsimg from "../../../public/ContactosImg.jpeg";
 
 export const Contacts = () => {
   // Estados para los campos del formulario

@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { UserRegister } from "../../Hooks/UserRegister"; // Importamos la función de API
-import AuthImg2 from "../../assets/RegisterImg.jpeg";
+import AuthImg2 from "../../../public/RegisterImg.jpeg";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { SubmitButton } from "../../Componentes/SubmitButton";
 import { Link } from "react-router-dom";

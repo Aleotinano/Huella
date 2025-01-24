@@ -2,7 +2,7 @@ import { useContext, useId, useState } from "react";
 import logincustom from "../logincustom.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { UserLogin } from "../../Hooks/UserLogin";
-import AuthImg from "../../assets/loginImg.jpeg";
+import AuthImg from "../../../public/loginImg.jpeg";
 import { Link } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { SubmitButton } from "../../Componentes/SubmitButton";
