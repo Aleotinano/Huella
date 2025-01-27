@@ -1,13 +1,13 @@
 import { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdMenu, MdOutlinePermContactCalendar, MdLogout } from "react-icons/md";
 import { PiTShirtFill } from "react-icons/pi";
+import { TbCategory } from "react-icons/tb";
 import { CartContext } from "../../Componentes/Cart";
 import { ProductsItem as ProductsInCart } from "../../Componentes/ProductosItem";
 import navcustom from "./navcustom.module.css";
-import { TbCategory } from "react-icons/tb";
 import { SubmitButton } from "../../Componentes/SubmitButton";
 import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../Componentes/Modal";
@@ -18,23 +18,14 @@ export const Navegador = () => {
   const [isNavbarVisible, setNavbarVisible] = useState(false);
   const [isCartVisible, setCartVisible] = useState(false);
   const [ShowModal, setShowModal] = useState(false);
+
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
   const { authenticated, logout } = useContext(AuthContext);
   const categories = useCategories();
 
   const navigate = useNavigate();
 
-  const toggleNavbar = () => setNavbarVisible(!isNavbarVisible);
-  const toggleCart = () => setCartVisible(!isCartVisible);
-
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleLogout = () => {
-    logout();
-    setShowModal(false);
-    navigate("/");
-  };
+  const toggleState = (setter) => () => setter((prev) => !prev);
 
   const navigateAndScroll = (id) => {
     navigate("/");
@@ -44,6 +35,12 @@ export const Navegador = () => {
         block: "start",
       });
     }, 60);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setShowModal(false);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -58,30 +55,30 @@ export const Navegador = () => {
       id: "Inicio",
       icon: <FaHome className="icon" />,
       label: "Inicio",
-      title: "Inicio",
-    },
-    {
-      to: "/Contactos",
-      id: "Contactos",
-      icon: <MdOutlinePermContactCalendar className="icon" />,
-      label: "Contactos",
-      title: "Contactos",
     },
     {
       to: "/#Productos",
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",
-      title: "Productos",
+    },
+    {
+      to: "/Contactos",
+      id: "Contactos",
+      icon: <MdOutlinePermContactCalendar className="icon" />,
+      label: "Contactos",
     },
   ];
 
+  const firstHalfLinks = navLinks.slice(0, Math.ceil(navLinks.length / 2));
+  const secondHalfLinks = navLinks.slice(Math.ceil(navLinks.length / 2));
+
   return (
     <nav className={`${navcustom.Navegador} ${NavScroll ? "scrolled" : ""}`}>
-      {/*menú movil*/}
+      {/* Menú móvil */}
       <MdMenu
         className={`icon ${navcustom.closemenu}`}
-        onClick={toggleNavbar}
+        onClick={toggleState(setNavbarVisible)}
         title="Abrir Menu"
       />
 
@@ -93,10 +90,10 @@ export const Navegador = () => {
       >
         <IoCloseOutline
           className={`icon ${navcustom.closemenu}`}
-          onClick={toggleNavbar}
+          onClick={toggleState(setNavbarVisible)}
           title="Cerrar Menu"
         />
-        {navLinks.map(({ to, id, icon, label }) => (
+        {firstHalfLinks.map(({ to, id, icon, label }) => (
           <Link
             key={label}
             to={to}
@@ -108,24 +105,40 @@ export const Navegador = () => {
             <strong>{label}</strong>
           </Link>
         ))}
-        {/* Dropdown de categorías */}
+
         <div className={navcustom.dropdown}>
-          <button className={navcustom.dropbtn}>
+          <button className={` ${navcustom.dropbtn} ${navcustom.StrongLinks}`}>
+            <TbCategory className="icon" />
             Categorías
-            <TbCategory className={navcustom.icon} />
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a href={`/#${category}`}>{category}</a>
+              <a href={`/#${category}`} key={category}>
+                <TbCategory className="icon" />
+                {category}
+              </a>
             ))}
           </div>
         </div>
+
+        {secondHalfLinks.map(({ to, id, icon, label }) => (
+          <Link
+            key={label}
+            to={to}
+            className={navcustom.StrongLinks}
+            title={label}
+            onClick={id ? () => navigateAndScroll(id) : null}
+          >
+            {icon}
+            <strong>{label}</strong>
+          </Link>
+        ))}
       </div>
 
       {/* Controles */}
       <div className={`icon ${navcustom.Controls}`}>
         <FaShoppingCart
-          onClick={toggleCart}
+          onClick={toggleState(setCartVisible)}
           className={navcustom.ControlIcon}
           title="Ver Carro"
         />
@@ -139,7 +152,7 @@ export const Navegador = () => {
               <FaUser className={navcustom.ControlIcon} />
             </Link>
             <MdLogout
-              onClick={handleShowModal}
+              onClick={() => setShowModal(true)}
               className={navcustom.ControlIcon}
               title="Salir"
             />
@@ -172,7 +185,7 @@ export const Navegador = () => {
           <h3>Carro de compras</h3>
           <IoCloseOutline
             className="icon"
-            onClick={toggleCart}
+            onClick={toggleState(setCartVisible)}
             title="Cerrar Menu"
           />
         </div>
@@ -202,7 +215,7 @@ export const Navegador = () => {
       {/* Modal de confirmación de logout */}
       {ShowModal && (
         <Modal
-          CloseModal={handleCloseModal}
+          CloseModal={() => setShowModal(false)}
           ModalTittle="¿Estás seguro de que deseas cerrar sesión?"
           onClickButtom={handleLogout}
         />

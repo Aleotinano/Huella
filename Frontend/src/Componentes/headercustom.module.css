@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   margin-top: 60px;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
   background: linear-gradient(
     to top,
     var(--secondary-color),
@@ -14,56 +14,50 @@
 }
 
 .firstContainer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
-    url("../../public/assets/background3.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
+    url("../../public/Firefly\ 20250127174957.png");
   flex: 1.5;
-  max-width: 60%;
+  background-size: cover;
+  max-width: 65%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  box-shadow: 2px 4px 6px var(--shadow-color);
-  overflow: hidden;
-  font-family: "Roboto", sans-serif;
   padding: 0 2rem;
-  min-height: 100%;
+  box-shadow: 2px 4px 6px var(--shadow-color);
+  font-family: "Roboto", sans-serif;
   color: var(--background-color);
   border-radius: 3px;
+  overflow: hidden;
 }
 
 .firstContainer h1 {
-  font-size: 16vw;
+  font-size: clamp(2rem, 18vw, 25vw);
   font-family: "Playfair Display", serif;
-  margin-bottom: 0.5rem;
   text-align: start;
-}
-
-.description {
-  font-size: 3vw;
-  line-height: 1.5;
-  font-family: "Lora", serif;
-  width: 80%;
-  margin-bottom: 3.5rem;
 }
 
 .secondContainer {
   flex: 1;
-  max-width: 30%;
+  max-width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
+}
+
+.description {
+  font-family: "Poppins", sans-serif;
+  font-size: 3vw;
+  width: 80%;
+  margin-bottom: 3.5rem;
 }
 
 .secondContainerfirtsimg,
 .secondContainerSecondImg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6))
+    center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,20 +71,12 @@
   transition: var(--transition-ease);
 }
 
-.secondContainerSecondImg {
-  background-image: url("../../public/assets/zapas4.jpeg");
-}
-
-.secondContainerSecondImg:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015));
-}
-
-.secondContainerfirtsimg:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.015));
-}
-
 .secondContainerfirtsimg {
-  background-image: url("../../public/assets/remeras10.jpeg");
+  background-image: url("../../public/zapas3.jpeg");
+}
+
+.secondContainerSecondImg {
+  background-image: url("../../public/remeras7.jpeg");
 }
 
 .linkButton {
@@ -120,6 +106,7 @@
   color: var(--secondary-color);
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .HeaderContainer {
     flex-direction: column;
@@ -130,7 +117,6 @@
     max-width: 100%;
     flex: 1;
     min-height: 85vh;
-    justify-content: start;
     align-items: center;
     text-align: center;
     padding: 0.5rem;
@@ -138,15 +124,15 @@
 
   .firstContainer h1 {
     font-size: 25vw;
+    margin-top: 1rem;
   }
 
   .description {
-    font-size: 4vw;
-    width: 100%;
+    font-size: 7vw;
+    margin-bottom: 2rem;
   }
 
   .secondContainer {
-    flex: 1;
     max-width: 100%;
     flex-direction: row;
   }
@@ -163,47 +149,32 @@
 
 @media (max-width: 525px) {
   .HeaderContainer {
-    flex-direction: column;
-    height: 100%;
     padding: 0;
   }
 
-  .firstContainer {
-    max-width: 100%;
-    flex: 1;
-  }
   .firstContainer h1 {
     font-size: 30vw;
+    margin-top: 3rem;
   }
 
   .description {
-    font-size: 8vw;
+    font-size: 10vw;
+    width: 100%;
   }
 
   .secondContainer {
-    flex: 1;
-    max-width: 100%;
     flex-direction: column;
   }
 
   .secondContainerfirtsimg,
   .secondContainerSecondImg {
-    height: 300px;
     min-width: 100%;
-    border-radius: 0px;
+    border-radius: 0;
   }
 
-  .linkButtonHeader {
-    padding: 1rem 1.2rem;
-    font-size: 1.2rem;
-  }
-
+  .linkButtonHeader,
   .linkButton {
     padding: 1rem 1.2rem;
-    font-size: 1.1rem;
-  }
-
-  .description {
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
   }
 }

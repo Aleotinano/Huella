@@ -7,6 +7,11 @@
   text-transform: capitalize;
   margin-top: 1rem;
   scroll-margin-top: 100px;
+  content-visibility: auto;
+}
+
+.TotalContainer {
+  scroll-margin-top: 100px;
 }
 
 .CategoryTitle {
@@ -20,11 +25,11 @@
   font-weight: bold;
   text-align: start;
   color: var(--accent-color);
-  margin: 0 1rem;
   text-transform: uppercase;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
   position: relative;
+  margin-left: 1rem;
 }
 
 .CategoryTitle::after {
@@ -37,9 +42,10 @@
 
 .SwiperContainer {
   display: flex;
-  height: 560px;
   width: 100%;
-  padding: 1rem !important;
+  padding: 1rem 1rem 4rem !important;
+  content-visibility: auto;
+  height: auto;
 }
 
 .CardContainer {
@@ -165,11 +171,6 @@
 }
 
 @media (max-width: 768px) {
-  .SwiperContainer {
-    height: 500px;
-    margin: 0 !important;
-  }
-
   .CategorySection h2 {
     font-size: 6vw;
   }
@@ -199,10 +200,6 @@
 @media (max-width: 520px) {
   .CategorySection {
     padding: 0.2rem;
-  }
-
-  .SwiperContainer {
-    padding: 0 !important;
   }
 
   .CardContainer img {
