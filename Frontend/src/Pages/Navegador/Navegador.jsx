@@ -57,7 +57,7 @@ export const Navegador = () => {
       label: "Inicio",
     },
     {
-      to: "/Tienda-de-zapatos#Productos",
+      to: "/#Productos",
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",

@@ -5,7 +5,7 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { SubmitButton } from "../../Componentes/SubmitButton";
 import { BsPaypal } from "react-icons/bs";
 
-export const Checkout = () => {
+export const CheckOut = () => {
   const { cart, updateCartItemSize } = useContext(CartContext);
   const [selectedPayment, setSelectedPayment] = useState("");
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
