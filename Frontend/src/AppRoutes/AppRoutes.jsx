@@ -4,7 +4,7 @@ import { Home } from "../Pages/Home/Home";
 import { Register } from "../UserAuth/Register/Register";
 import { UserPanel } from "../UserAuth/UserPanel/UserPanel";
 import { Contacts } from "../Pages/Contacts/Contacts";
-import { Checkout } from "../Componentes/CheckOut";
+import { Checkout } from "../Pages/CheckOut/CheckOut";
 
 export const AppRoutes = () => {
   return (

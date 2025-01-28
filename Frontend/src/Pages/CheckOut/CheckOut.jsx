@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { CartContext } from "../Componentes/Cart";
+import { CartContext } from "../../Componentes/Cart";
 import styles from "./checkout.module.css";
 import { FaRegCreditCard } from "react-icons/fa";
-import { SubmitButton } from "./SubmitButton";
+import { SubmitButton } from "../../Componentes/SubmitButton";
 import { BsPaypal } from "react-icons/bs";
 
 export const Checkout = () => {

@@ -51,19 +51,19 @@ export const Navegador = () => {
 
   const navLinks = [
     {
-      to: "/", // Añadir prefijo en el `to`
+      to: "/",
       id: "Inicio",
       icon: <FaHome className="icon" />,
       label: "Inicio",
     },
     {
-      to: "/Tienda-de-zapatos#Productos", // Añadir prefijo para las secciones
+      to: "/Tienda-de-zapatos#Productos",
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",
     },
     {
-      to: "/Contactos", // Añadir prefijo en el `to`
+      to: "/Contactos",
       id: "Contactos",
       icon: <MdOutlinePermContactCalendar className="icon" />,
       label: "Contactos",
@@ -75,14 +75,12 @@ export const Navegador = () => {
 
   return (
     <nav className={`${navcustom.Navegador} ${NavScroll ? "scrolled" : ""}`}>
-      {/* Menú móvil */}
       <MdMenu
         className={`icon ${navcustom.closemenu}`}
         onClick={toggleState(setNavbarVisible)}
         title="Abrir Menu"
       />
 
-      {/* Navegación */}
       <div
         className={`${navcustom.Links} ${
           isNavbarVisible ? navcustom.Navbarshow : navcustom.hideOffcanvas
@@ -135,7 +133,6 @@ export const Navegador = () => {
         ))}
       </div>
 
-      {/* Controles */}
       <div className={`icon ${navcustom.Controls}`}>
         <FaShoppingCart
           onClick={toggleState(setCartVisible)}
@@ -145,7 +142,7 @@ export const Navegador = () => {
         {authenticated ? (
           <>
             <Link
-              to="/UserPanel" // Añadir prefijo en el `to`
+              to="/UserPanel"
               className={navcustom.StrongLinks}
               title="Perfil"
             >
@@ -160,7 +157,7 @@ export const Navegador = () => {
         ) : (
           <>
             <Link
-              to="/Login" // Añadir prefijo en el `to`
+              to="/Login"
               className={navcustom.StrongLinks}
               title="Iniciar sesión"
             >
@@ -175,7 +172,6 @@ export const Navegador = () => {
         )}
       </div>
 
-      {/* Carro de compras */}
       <div
         className={`${navcustom.offcanvas} ${
           isCartVisible ? navcustom.showOffcanvas : navcustom.hideOffcanvas
@@ -206,7 +202,7 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/Tienda-de-zapatos/Checkout">
+          <Link to="/Checkout">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>
