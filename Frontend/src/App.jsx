@@ -8,7 +8,7 @@ function App() {
   return (
     <CartProvider>
       <AuthProvider>
-        <Router basename="/Huella">
+        <Router>
           <Navegador />
           <AppRoutes />
         </Router>
