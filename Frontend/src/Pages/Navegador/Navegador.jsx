@@ -28,10 +28,10 @@ export const Navegador = () => {
 
   const toggleState = (setter) => () => setter((prev) => !prev);
 
-  const navigateAndScroll = (id) => {
+  const navigateAndScroll = (category) => {
     navigate("/Huella");
     setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({
+      document.getElementById(category)?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -54,16 +54,16 @@ export const Navegador = () => {
 
   const navLinks = [
     {
+      to: "#Productos",
+      id: "Productos",
+      icon: <PiTShirtFill className="icon" />,
+      label: "Productos",
+    },
+    {
       to: "/",
       id: "Inicio",
       icon: <FaHome className="icon" />,
       label: "Inicio",
-    },
-    {
-      to: "/#Productos",
-      id: "Productos",
-      icon: <PiTShirtFill className="icon" />,
-      label: "Productos",
     },
     {
       to: "/Contactos",
@@ -114,10 +114,14 @@ export const Navegador = () => {
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a href={`/Huella/#${category}`} key={category}>
+              <button
+                key={category}
+                onClick={() => navigateAndScroll(category)}
+                className={navcustom.categoryLink}
+              >
                 <TbCategory className="icon" />
                 {category}
-              </a>
+              </button>
             ))}
           </div>
         </div>
