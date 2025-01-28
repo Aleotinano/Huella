@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUser, FaHome } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdMenu, MdOutlinePermContactCalendar, MdLogout } from "react-icons/md";
@@ -28,7 +28,7 @@ export const Navegador = () => {
   const toggleState = (setter) => () => setter((prev) => !prev);
 
   const navigateAndScroll = (id) => {
-    navigate("/Tienda-de-zapatos"); // Aquí agregamos el prefijo del repositorio
+    navigate("/Tienda-de-zapatos");
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({
         behavior: "smooth",
@@ -42,6 +42,8 @@ export const Navegador = () => {
     setShowModal(false);
     navigate("/Tienda-de-zapatos");
   };
+
+  const goToCheckout = () => navigate("/CheckOut");
 
   useEffect(() => {
     const handleScroll = () => setNavScroll(window.scrollY > 50);
@@ -202,9 +204,7 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/CheckOut">
-            <SubmitButton>Comprar</SubmitButton>
-          </Link>
+          <SubmitButton onClick={goToCheckout}>Comprar</SubmitButton>
         </div>
       </div>
 
