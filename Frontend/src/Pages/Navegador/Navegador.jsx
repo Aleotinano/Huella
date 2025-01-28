@@ -202,7 +202,7 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/Checkout">
+          <Link to="/CheckOut">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>
