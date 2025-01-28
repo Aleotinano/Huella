@@ -113,10 +113,7 @@ export const Navegador = () => {
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a
-                href={`/Tienda-de-zapatos/#${category}`} // Añadir prefijo en el `href`
-                key={category}
-              >
+              <a href={`/Tienda-de-zapatos/#${category}`} key={category}>
                 <TbCategory className="icon" />
                 {category}
               </a>
