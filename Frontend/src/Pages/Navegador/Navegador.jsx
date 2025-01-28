@@ -51,7 +51,7 @@ export const Navegador = () => {
 
   const navLinks = [
     {
-      to: "/Tienda-de-zapatos", // Añadir prefijo en el `to`
+      to: "/", // Añadir prefijo en el `to`
       id: "Inicio",
       icon: <FaHome className="icon" />,
       label: "Inicio",
@@ -63,7 +63,7 @@ export const Navegador = () => {
       label: "Productos",
     },
     {
-      to: "/Tienda-de-zapatos/Contactos", // Añadir prefijo en el `to`
+      to: "/Contactos", // Añadir prefijo en el `to`
       id: "Contactos",
       icon: <MdOutlinePermContactCalendar className="icon" />,
       label: "Contactos",
@@ -145,7 +145,7 @@ export const Navegador = () => {
         {authenticated ? (
           <>
             <Link
-              to="/Tienda-de-zapatos/UserPanel" // Añadir prefijo en el `to`
+              to="/UserPanel" // Añadir prefijo en el `to`
               className={navcustom.StrongLinks}
               title="Perfil"
             >
@@ -160,14 +160,14 @@ export const Navegador = () => {
         ) : (
           <>
             <Link
-              to="/Tienda-de-zapatos/Login" // Añadir prefijo en el `to`
+              to="/Login" // Añadir prefijo en el `to`
               className={navcustom.StrongLinks}
               title="Iniciar sesión"
             >
               <FaUser className={navcustom.ControlIcon} />
             </Link>
             <button className={navcustom.RegisterLink}>
-              <Link to="/Tienda-de-zapatos/Register" title="Registrarse">
+              <Link to="/Register" title="Registrarse">
                 Registrarse
               </Link>
             </button>
@@ -206,7 +206,7 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/Tienda-de-zapatos/Checkout">
+          <Link to="/Checkout">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>
