@@ -7,11 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "deploy": "vite build && gh-pages -d dist",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "start": "node server.js",
-    "ngrok": "ngrok http 5173",
-    "start-ngrok": "node ngrok-script.js"
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "18.3.1",
