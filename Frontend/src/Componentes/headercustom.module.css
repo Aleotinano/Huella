@@ -15,7 +15,7 @@
 
 .firstContainer {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
-    url("../../public/Firefly\ 20250127174957.png");
+    url("../../public/Background.png");
   flex: 1.5;
   background-size: cover;
   max-width: 65%;
