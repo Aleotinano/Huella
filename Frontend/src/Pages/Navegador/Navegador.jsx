@@ -29,7 +29,7 @@ export const Navegador = () => {
   const toggleState = (setter) => () => setter((prev) => !prev);
 
   const navigateAndScroll = (id) => {
-    navigate("/Tienda-de-zapatos");
+    navigate("/Huella");
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({
         behavior: "smooth",
@@ -41,7 +41,7 @@ export const Navegador = () => {
   const handleLogout = () => {
     logout();
     setShowModal(false);
-    navigate("/Tienda-de-zapatos");
+    navigate("/Huella");
   };
 
   const goToCheckout = () => navigate("/CheckOut");
@@ -114,7 +114,7 @@ export const Navegador = () => {
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a href={`/Tienda-de-zapatos/#${category}`} key={category}>
+              <a href={`/Huella/#${category}`} key={category}>
                 <TbCategory className="icon" />
                 {category}
               </a>

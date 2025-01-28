@@ -8,7 +8,7 @@ function App() {
   return (
     <CartProvider>
       <AuthProvider>
-        <Router basename="/Tienda-de-zapatos">
+        <Router basename="/Huella">
           <Navegador />
           <AppRoutes />
         </Router>
