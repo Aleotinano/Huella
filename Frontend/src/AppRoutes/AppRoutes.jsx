@@ -9,7 +9,7 @@ import { Checkout } from "../Componentes/CheckOut";
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/Tienda-de-zapatos/" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
       <Route path="/UserPanel" element={<UserPanel />} />
