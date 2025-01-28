@@ -27,6 +27,61 @@ body {
   animation: fadeIn 1s ease-out forwards;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--accent-color) !important; /* Color del ícono */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Tamaño del ícono */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 200px !important;
+  top: 40% !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo más oscuro al pasar el cursor */
+  transform: scale(1.15); /* Efecto de zoom */
+  color: var(--accent-color); /* Cambiar color del ícono al hover */
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--accent-color) !important;
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--accent-color) !important;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -206,13 +206,12 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/Finalizar Compra">
+          <Link to="/Checkout">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>
       </div>
 
-      {/* Modal de confirmación de logout */}
       {ShowModal && (
         <Modal
           CloseModal={() => setShowModal(false)}

@@ -18,8 +18,22 @@ export function CartProvider({ children }) {
       payload: product,
     });
 
+  const updateCartItemSize = (id, size) => {
+    dispatch({
+      type: "ACTUALIZAR_TALLA",
+      payload: { id, size },
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cart: state, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        cart: state,
+        addToCart,
+        removeFromCart,
+        updateCartItemSize,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

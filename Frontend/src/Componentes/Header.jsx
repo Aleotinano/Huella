@@ -20,19 +20,6 @@ export const Header = () => {
 
       <div className={headercustom.secondContainer}>
         <div
-          className={headercustom.secondContainerfirtsimg}
-          aria-label="Explorar zapatillas"
-        >
-          <a
-            href="#zapatillas"
-            className={headercustom.linkButton}
-            aria-label="Ver zapatillas"
-          >
-            Zapatillas
-          </a>
-        </div>
-
-        <div
           className={headercustom.secondContainerSecondImg}
           aria-label="Explorar remeras"
         >
@@ -42,6 +29,18 @@ export const Header = () => {
             className={headercustom.linkButton}
           >
             Remeras
+          </a>
+        </div>
+        <div
+          className={headercustom.secondContainerfirtsimg}
+          aria-label="Explorar zapatillas"
+        >
+          <a
+            href="#zapatillas"
+            className={headercustom.linkButton}
+            aria-label="Ver zapatillas"
+          >
+            Zapatillas
           </a>
         </div>
       </div>

@@ -4,15 +4,17 @@ import { Home } from "../Pages/Home/Home";
 import { Register } from "../UserAuth/Register/Register";
 import { UserPanel } from "../UserAuth/UserPanel/UserPanel";
 import { Contacts } from "../Pages/Contacts/Contacts";
+import { Checkout } from "../Componentes/CheckOut";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/Tienda-de-zapatos/" element={<Home />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
       <Route path="/UserPanel" element={<UserPanel />} />
       <Route path="/Contactos" element={<Contacts />} />
+      <Route path="/Checkout" element={<Checkout />} />
     </Routes>
   );
 };

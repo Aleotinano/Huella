@@ -9,19 +9,6 @@ export const ProductsItem = ({
   removeFromCart,
   Incartcustom,
 }) => {
-  /*
-  const sizes = Array.isArray(product.size) ? product.size : [];
-
-          // Tallas 
-
-          <div className={productscustom.producsize}>
-          {sizes.length > 0 ? (
-            sizes.map((size, index) => <strong key={index}>{size}</strong>)
-          ) : (
-            <strong>No hay productos disponibles</strong>
-          )}
-        </div> */
-
   return (
     <article className={`${Incartcustom} ${productscustom.CardContainer}`}>
       <section>

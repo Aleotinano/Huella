@@ -178,6 +178,7 @@
   .CardContainer {
     height: 400px;
     margin: 0.5rem;
+    padding: 0;
   }
 
   .TitlesCard h5 {
@@ -208,7 +209,6 @@
 
   .CategorySection h2 {
     font-size: 12vw;
-    width: 80%;
   }
 
   .TitlesCard h5 {
@@ -231,10 +231,6 @@
 }
 
 @media (max-width: 320px) {
-  .CardContainer {
-    padding: 1rem;
-  }
-
   .TitlesCard h5 {
     font-size: 1.2rem;
   }
