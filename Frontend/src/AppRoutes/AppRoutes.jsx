@@ -4,7 +4,7 @@ import { Home } from "../Pages/Home/Home";
 import { Register } from "../UserAuth/Register/Register";
 import { UserPanel } from "../UserAuth/UserPanel/UserPanel";
 import { Contacts } from "../Pages/Contacts/Contacts";
-import { Checkout } from "../Pages/CheckOut/CheckOut";
+import { CheckOut } from "../Pages/CheckOut/CheckOut";
 
 export const AppRoutes = () => {
   return (
@@ -14,7 +14,7 @@ export const AppRoutes = () => {
       <Route path="/Register" element={<Register />} />
       <Route path="/UserPanel" element={<UserPanel />} />
       <Route path="/Contactos" element={<Contacts />} />
-      <Route path="/Checkout" element={<Checkout />} />
+      <Route path="/CheckOut" element={<CheckOut />} />
     </Routes>
   );
 };
