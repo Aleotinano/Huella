@@ -60,7 +60,7 @@ export const Navegador = () => {
       label: "Inicio",
     },
     {
-      to: "/#Productos",
+      to: "/Huella/#Productos",
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",
