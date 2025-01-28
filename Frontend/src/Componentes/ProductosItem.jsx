@@ -12,10 +12,7 @@ export const ProductsItem = ({
   return (
     <article className={`${Incartcustom} ${productscustom.CardContainer}`}>
       <section>
-        <img
-          src={`${process.env.PUBLIC_URL}/${product.img}`}
-          alt={product.name}
-        />
+        <img src={product.img} alt={product.name} />
       </section>
 
       <section>
