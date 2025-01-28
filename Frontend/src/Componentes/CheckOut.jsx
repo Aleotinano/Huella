@@ -88,7 +88,7 @@ export const Checkout = () => {
           {cart.map((item) => (
             <div key={item.id} className={styles.checkoutCartItem}>
               <img
-                src={`${process.env.PUBLIC_URL}/${product.img}`}
+                src={product.img}
                 alt={item.name}
                 className={styles.cartItemImage}
               />
