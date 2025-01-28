@@ -88,7 +88,7 @@ export const CheckOut = () => {
           {cart.map((item) => (
             <div key={item.id} className={styles.checkoutCartItem}>
               <img
-                src={product.img}
+                src={item.img}
                 alt={item.name}
                 className={styles.cartItemImage}
               />

@@ -12,7 +12,7 @@ import { SubmitButton } from "../../Componentes/SubmitButton";
 import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../Componentes/Modal";
 import { useCategories } from "../../Hooks/UseCategories";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Navegador = () => {
   const [NavScroll, setNavScroll] = useState(false);
