@@ -28,7 +28,7 @@ export const Navegador = () => {
   const toggleState = (setter) => () => setter((prev) => !prev);
 
   const navigateAndScroll = (id) => {
-    navigate("/");
+    navigate("/Tienda-de-zapatos"); // Aquí agregamos el prefijo del repositorio
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({
         behavior: "smooth",
@@ -40,7 +40,7 @@ export const Navegador = () => {
   const handleLogout = () => {
     logout();
     setShowModal(false);
-    navigate("/");
+    navigate("/Tienda-de-zapatos");
   };
 
   useEffect(() => {
@@ -51,19 +51,19 @@ export const Navegador = () => {
 
   const navLinks = [
     {
-      to: "/",
+      to: "/Tienda-de-zapatos", // Añadir prefijo en el `to`
       id: "Inicio",
       icon: <FaHome className="icon" />,
       label: "Inicio",
     },
     {
-      to: "/#Productos",
+      to: "/Tienda-de-zapatos#Productos", // Añadir prefijo para las secciones
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",
     },
     {
-      to: "/Contactos",
+      to: "/Tienda-de-zapatos/Contactos", // Añadir prefijo en el `to`
       id: "Contactos",
       icon: <MdOutlinePermContactCalendar className="icon" />,
       label: "Contactos",
@@ -113,7 +113,10 @@ export const Navegador = () => {
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a href={`/#${category}`} key={category}>
+              <a
+                href={`/Tienda-de-zapatos/#${category}`} // Añadir prefijo en el `href`
+                key={category}
+              >
                 <TbCategory className="icon" />
                 {category}
               </a>
@@ -145,7 +148,7 @@ export const Navegador = () => {
         {authenticated ? (
           <>
             <Link
-              to="/UserPanel"
+              to="/Tienda-de-zapatos/UserPanel" // Añadir prefijo en el `to`
               className={navcustom.StrongLinks}
               title="Perfil"
             >
@@ -160,14 +163,14 @@ export const Navegador = () => {
         ) : (
           <>
             <Link
-              to="/Login"
+              to="/Tienda-de-zapatos/Login" // Añadir prefijo en el `to`
               className={navcustom.StrongLinks}
               title="Iniciar sesión"
             >
               <FaUser className={navcustom.ControlIcon} />
             </Link>
             <button className={navcustom.RegisterLink}>
-              <Link to="/Register" title="Registrarse">
+              <Link to="/Tienda-de-zapatos/Register" title="Registrarse">
                 Registrarse
               </Link>
             </button>
@@ -206,7 +209,7 @@ export const Navegador = () => {
           )}
         </div>
         <div className={navcustom.BuyButtonContainer}>
-          <Link to="/Checkout">
+          <Link to="/Tienda-de-zapatos/Checkout">
             <SubmitButton>Comprar</SubmitButton>
           </Link>
         </div>

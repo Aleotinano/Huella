@@ -5,15 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../public/LoginImg.jpeg");
+  background-image: url("../../public/LoginImg.jpeg");
   background-repeat: no-repeat;
 }
 
 .register {
-  background-image: url("../public/RegisterImg.jpeg");
+  background-image: url("../../public/RegisterImg.jpeg");
 }
 .contacts {
-  background-image: url("../public/ContactosImg.jpeg");
+  background-image: url("../../public/ContactosImg.jpeg");
 }
 
 .contacts .FormSection {
