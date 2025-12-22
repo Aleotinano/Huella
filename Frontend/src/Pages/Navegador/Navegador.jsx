@@ -29,7 +29,7 @@ export const Navegador = () => {
   const toggleState = (setter) => () => setter((prev) => !prev);
 
   const navigateAndScroll = (id) => {
-    navigate("/Huella");
+    navigate("/");
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({
         behavior: "smooth",
@@ -41,7 +41,7 @@ export const Navegador = () => {
   const handleLogout = () => {
     logout();
     setShowModal(false);
-    navigate("/Huella");
+    navigate("/");
   };
 
   const goToCheckout = () => navigate("/CheckOut");
@@ -60,7 +60,7 @@ export const Navegador = () => {
       label: "Inicio",
     },
     {
-      to: "/Huella/#Productos",
+      to: "#Productos",
       id: "Productos",
       icon: <PiTShirtFill className="icon" />,
       label: "Productos",
@@ -114,7 +114,7 @@ export const Navegador = () => {
           </button>
           <div className={navcustom.dropdownContent}>
             {categories.map((category) => (
-              <a href={`/Huella/#${category}`} key={category}>
+              <a href={`#${category}`} key={category}>
                 <TbCategory className="icon" />
                 {category}
               </a>

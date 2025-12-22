@@ -46,6 +46,8 @@
   padding: 1rem 1rem 4rem !important;
   content-visibility: auto;
   height: auto;
+
+  scroll-margin-top: 200px;
 }
 
 .CardContainer {
