@@ -8,12 +8,6 @@ Proyecto de e-commerce de ropa vintage enfocado en diseño, experiencia de usuar
 - Diseño responsivo para todos los dispositivos
 - Tecnologías web modernas
 
-## Características
-
-- **Sobre el Proyecto**: Un e-commerce de ropa vintage con un enfoque en diseño, experiencia de usuario y rendimiento.
-- **Diseño Responsivo**: Adaptado para ofrecer una experiencia óptima en cualquier dispositivo.
-- **Tecnologías Modernas**: Uso de herramientas y frameworks actuales para garantizar escalabilidad y mantenimiento.
-
 ## Stack tecnológico
 
 - HTML/CSS y CSS Modules para diseño y estilos
