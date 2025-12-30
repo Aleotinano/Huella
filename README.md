@@ -21,7 +21,7 @@ Proyecto de e-commerce de ropa vintage enfocado en diseño, experiencia de usuar
 ## Contacto
 
 - **Correo Electrónico**: alejandrootinano2@gmail.com
-- **LinkedIn**: [Tu Perfil de LinkedIn](www.linkedin.com/in/aleotinano)
-- **GitHub**: [Tu Perfil de GitHub](https://github.com/Aleotinano)
+- **LinkedIn**: www.linkedin.com/in/aleotinano
+- **GitHub**: https://github.com/Aleotinano
 
 ¡Gracias por visitar mi proyecto!
